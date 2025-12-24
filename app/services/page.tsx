@@ -26,7 +26,7 @@ export default function ServicesPage() {
         details: 'Affordable plans for regular maintenance.'
       },
       image: '/Services/services01.jpg',
-      borderColor: 'border-[#0a9fe1]'
+      accentColor: 'emerald'
     },
     {
       id: 'deep',
@@ -49,7 +49,7 @@ export default function ServicesPage() {
         details: 'Comprehensive deep-clean transformation.'
       },
       image: '/Services/services02.jpg',
-      borderColor: 'border-[#f370ae]'
+      accentColor: 'blue'
     },
     {
       id: 'move',
@@ -72,7 +72,7 @@ export default function ServicesPage() {
         details: 'Ensure spotless handover or move-in.'
       },
       image: '/Services/services03.jpg',
-      borderColor: 'border-[#0a9fe1]'
+      accentColor: 'emerald'
     },
     {
       id: 'window',
@@ -95,7 +95,7 @@ export default function ServicesPage() {
         details: 'Price varies by number and accessibility.'
       },
       image: '/Services/services01.jpg',
-      borderColor: 'border-[#f370ae]'
+      accentColor: 'blue'
     },
     {
       id: 'carpet',
@@ -118,7 +118,7 @@ export default function ServicesPage() {
         details: 'Minimum charge $80. Upholstery from $60.'
       },
       image: '/Services/services02.jpg',
-      borderColor: 'border-[#0a9fe1]'
+      accentColor: 'emerald'
     },
     {
       id: 'spring',
@@ -141,25 +141,26 @@ export default function ServicesPage() {
         details: 'Standard 3-bedroom house. Customizable.'
       },
       image: '/Services/services03.jpg',
-      borderColor: 'border-[#f370ae]'
+      accentColor: 'blue'
     }
   ];
 
   return (
     <div className="min-h-screen overflow-hidden">
       {/* Hero Section */}
-      <section className="relative bg-[#f6f6f6] pt-32 pb-20 px-4">
+      <section className="relative bg-gradient-to-br from-slate-50 via-white to-emerald-50/20 pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#0a9fe1]/10 to-[#f370ae]/10 rounded-full mb-6 animate-fade-in">
-              <span className="text-sm font-semibold bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] bg-clip-text text-transparent">
+            <div className="inline-block px-4 py-2 bg-emerald-100 rounded-full mb-6 animate-fade-in">
+              <span className="text-sm font-semibold text-emerald-700">
                 OUR SERVICES
               </span>
             </div>
-            <h1 className="text-[#f370ae] text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-              Our <span className="text-[#0a9fe1]">Cleaning Services</span>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
+              <span className="bg-gradient-to-r from-slate-800 to-slate-700 bg-clip-text text-transparent">Our </span>
+              <span className="bg-gradient-to-r from-emerald-600 to-emerald-700 bg-clip-text text-transparent">Cleaning Services</span>
             </h1>
-            <p className="text-xl md:text-2xl text-[#f370ae] leading-relaxed animate-slide-up animation-delay-200">
+            <p className="text-xl md:text-2xl text-slate-600 leading-relaxed animate-slide-up animation-delay-200">
               Discover a range of services designed to bring comfort and cleanliness into every corner of your home.
             </p>
           </div>
@@ -174,40 +175,60 @@ export default function ServicesPage() {
               return (
                 <div
                   key={service.id}
-                  className={`group bg-[#f6f6f6] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer animate-slide-up border-b-4 ${service.borderColor}`}
+                  className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer animate-slide-up border border-slate-100"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="relative h-72 bg-gradient-to-br from-[#0a9fe1]/10 to-[#f370ae]/10 overflow-hidden">
+                  <div className="relative h-64 bg-gradient-to-br from-slate-100 to-slate-50 overflow-hidden">
                     {service.image ? (
                       <Image 
                         src={service.image}
                         alt={service.title}
                         fill
-                        className="object-cover"
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                     ) : (
                       <div className="absolute inset-0 flex items-center justify-center">
-                        <Icon size={80} className="text-[#0a9fe1]/30" />
+                        <Icon size={80} className="text-slate-300" />
                       </div>
                     )}
+                    {/* Floating Icon Badge */}
+                    <div className={`absolute top-4 right-4 w-14 h-14 rounded-2xl flex items-center justify-center shadow-lg ${
+                      service.accentColor === 'emerald' 
+                        ? 'bg-gradient-to-br from-emerald-500 to-emerald-600' 
+                        : 'bg-gradient-to-br from-blue-500 to-blue-600'
+                    }`}>
+                      <Icon className="text-white" size={24} />
+                    </div>
+                    {/* Bottom Accent Bar */}
+                    <div className={`absolute bottom-0 left-0 right-0 h-1 ${
+                      service.accentColor === 'emerald'
+                        ? 'bg-gradient-to-r from-emerald-500 to-emerald-600'
+                        : 'bg-gradient-to-r from-blue-500 to-blue-600'
+                    }`}></div>
                   </div>
                   <div className="p-6 bg-white">
-                    <h3 className="text-2xl font-bold text-[#0a9fe1] mb-2">{service.title}</h3>
-                    <p className="text-[#f370ae] font-semibold mb-3">{service.tagline}</p>
-                    <p className="text-[#f370ae] leading-relaxed mb-4">{service.description}</p>
+                    <h3 className={`text-2xl font-bold mb-2 ${
+                      service.accentColor === 'emerald' ? 'text-emerald-600' : 'text-blue-600'
+                    }`}>{service.title}</h3>
+                    <p className="text-slate-700 font-semibold mb-3">{service.tagline}</p>
+                    <p className="text-slate-600 leading-relaxed mb-4 line-clamp-3">{service.description}</p>
                     
-                    <div className="bg-[#f6f6f6] rounded-xl p-4 mb-4">
-                      <div className="text-2xl font-bold text-[#0a9fe1] mb-1">
+                    <div className="bg-gradient-to-br from-slate-50 to-white rounded-xl p-4 mb-4 border border-slate-100">
+                      <div className={`text-2xl font-bold mb-1 ${
+                        service.accentColor === 'emerald' ? 'text-emerald-600' : 'text-blue-600'
+                      }`}>
                         {service.pricing.from}
                       </div>
-                      <div className="text-sm text-[#f370ae]">
+                      <div className="text-sm text-slate-600">
                         {service.pricing.details}
                       </div>
                     </div>
 
                     <a
                       href={`#${service.id}-details`}
-                      className="inline-flex items-center gap-2 text-[#0a9fe1] font-semibold hover:gap-3 transition-all"
+                      className={`inline-flex items-center gap-2 font-semibold hover:gap-3 transition-all ${
+                        service.accentColor === 'emerald' ? 'text-emerald-600' : 'text-blue-600'
+                      }`}
                     >
                       View Details
                       <ArrowRight size={18} />
@@ -221,7 +242,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Detailed Services Section */}
-      <section className="py-24 px-4 bg-[#f6f6f6]">
+      <section className="py-24 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="space-y-16 max-w-6xl mx-auto">
             {services.map((service, index) => {
@@ -230,52 +251,110 @@ export default function ServicesPage() {
                 <div
                   key={service.id}
                   id={`${service.id}-details`}
-                  className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center bg-white rounded-3xl shadow-lg p-8 md:p-12 hover:shadow-xl transition-all animate-slide-up`}
+                  className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition-all animate-slide-up border border-slate-200/50 backdrop-blur-sm"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  {/* Content Side */}
-                  <div className="lg:w-5/12">
-                    <div className="inline-block w-20 h-20 bg-gradient-to-br from-[#0a9fe1] to-[#f370ae] rounded-2xl flex items-center justify-center mb-6">
-                      <Icon className="text-white" size={40} />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0a9fe1] mb-3">
-                      {service.title}
-                    </h2>
-                    <p className="text-[#f370ae] text-lg font-semibold mb-4">
-                      {service.tagline}
-                    </p>
-                    <p className="text-[#f370ae] mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    
-                    <div className="bg-[#f6f6f6] rounded-xl p-6 mb-6">
-                      <div className="text-3xl font-bold text-[#0a9fe1] mb-2">
-                        {service.pricing.from}
-                      </div>
-                      <div className="text-sm text-[#f370ae]">
-                        {service.pricing.details}
-                      </div>
-                    </div>
-
-                    <a
-                      href="/booking"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105"
-                    >
-                      Book Now
-                      <ArrowRight size={20} />
-                    </a>
-                  </div>
-
-                  {/* Features Side */}
-                  <div className="lg:w-7/12">
-                    <h3 className="text-xl font-bold text-[#0a9fe1] mb-6">What's Included:</h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3">
-                          <CheckCircle className="text-[#0a9fe1] flex-shrink-0 mt-0.5" size={20} />
-                          <span className="text-[#f370ae]">{feature}</span>
+                  <div className={`grid grid-cols-1 ${index % 2 === 0 ? 'lg:grid-cols-12' : 'lg:grid-cols-12'} gap-0`}>
+                    {/* Image Side */}
+                    <div className={`relative lg:col-span-5 h-64 lg:h-auto min-h-[400px] ${index % 2 === 0 ? 'order-1' : 'order-1 lg:order-2'}`}>
+                      <div className="absolute inset-0 bg-gradient-to-br from-slate-900/50 to-slate-900/70 z-10"></div>
+                      {service.image && (
+                        <Image 
+                          src={service.image}
+                          alt={service.title}
+                          fill
+                          className="object-cover"
+                        />
+                      )}
+                      <div className="absolute inset-0 z-20 flex flex-col justify-end p-8 md:p-10">
+                        <div className={`inline-flex w-16 h-16 rounded-2xl items-center justify-center mb-4 shadow-2xl ${
+                          service.accentColor === 'emerald'
+                            ? 'bg-gradient-to-br from-emerald-500 to-emerald-600'
+                            : 'bg-gradient-to-br from-blue-500 to-blue-600'
+                        }`}>
+                          <Icon className="text-white" size={32} />
                         </div>
-                      ))}
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                          {service.title}
+                        </h2>
+                        <p className="text-white/90 text-lg font-medium">
+                          {service.tagline}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Content Side */}
+                    <div className={`lg:col-span-7 p-8 md:p-10 ${index % 2 === 0 ? 'order-2' : 'order-2 lg:order-1'}`}>
+                      <p className="text-slate-600 mb-8 leading-relaxed text-lg">
+                        {service.description}
+                      </p>
+                    
+                      <div className={`relative overflow-hidden rounded-2xl p-6 mb-8 border-2 ${
+                        service.accentColor === 'emerald'
+                          ? 'bg-gradient-to-br from-emerald-50 to-white border-emerald-200'
+                          : 'bg-gradient-to-br from-blue-50 to-white border-blue-200'
+                      }`}>
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-white/50 to-transparent rounded-full -translate-y-16 translate-x-16"></div>
+                        <p className="text-xs text-slate-500 uppercase tracking-wider font-semibold mb-2">Starting From</p>
+                        <div className={`text-4xl md:text-5xl font-bold mb-2 ${
+                          service.accentColor === 'emerald' ? 'text-emerald-600' : 'text-blue-600'
+                        }`}>
+                          {service.pricing.from}
+                        </div>
+                        <div className="text-sm text-slate-600 font-medium">
+                          {service.pricing.details}
+                        </div>
+                      </div>
+
+                      <a
+                        href="/booking"
+                        className={`inline-flex items-center justify-center gap-2 text-white px-8 py-4 rounded-2xl font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105 hover:-translate-y-1 shadow-lg ${
+                          service.accentColor === 'emerald'
+                            ? 'bg-gradient-to-r from-emerald-500 to-emerald-600 hover:from-emerald-600 hover:to-emerald-700'
+                            : 'bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700'
+                        }`}
+                      >
+                        Book This Service
+                        <ArrowRight size={22} className="group-hover:translate-x-1 transition-transform" />
+                      </a>
+                    </div>
+
+                    {/* Features Side */}
+                    <div className="lg:col-span-12 px-8 md:px-10 pb-8 md:pb-10 pt-0">
+                      <div className="flex items-center gap-3 mb-8">
+                        <div className={`w-1.5 h-10 rounded-full ${
+                          service.accentColor === 'emerald' ? 'bg-gradient-to-b from-emerald-400 to-emerald-600' : 'bg-gradient-to-b from-blue-400 to-blue-600'
+                        }`}></div>
+                        <h3 className="text-3xl font-bold text-slate-800">What's Included</h3>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                        {service.features.map((feature, idx) => (
+                          <div key={idx} className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-50 to-white border border-slate-200 hover:border-slate-300 transition-all hover:shadow-lg hover:-translate-y-1">
+                            {/* Background Pattern */}
+                            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity">
+                              <div className={`absolute inset-0 ${
+                                service.accentColor === 'emerald'
+                                  ? 'bg-gradient-to-br from-emerald-50/50 to-transparent'
+                                  : 'bg-gradient-to-br from-blue-50/50 to-transparent'
+                              }`}></div>
+                            </div>
+                            {/* Mini decorative image */}
+                            <div className="absolute top-0 right-0 w-20 h-20 opacity-5">
+                              <div className="absolute inset-0 bg-gradient-to-br from-slate-400 to-slate-600 rounded-full transform translate-x-6 -translate-y-6"></div>
+                            </div>
+                            <div className="relative p-5">
+                              <div className={`flex items-center justify-center w-10 h-10 rounded-xl mb-3 shadow-sm ${
+                                service.accentColor === 'emerald'
+                                  ? 'bg-gradient-to-br from-emerald-500 to-emerald-600'
+                                  : 'bg-gradient-to-br from-blue-500 to-blue-600'
+                              }`}>
+                                <CheckCircle className="text-white" size={20} />
+                              </div>
+                              <span className="text-slate-700 font-medium leading-snug block">{feature}</span>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -286,8 +365,10 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#0a9fe1] via-[#f370ae] to-[#0a9fe1] text-white relative overflow-hidden">
+      <section className="py-24 px-4 bg-gradient-to-br from-emerald-600 via-emerald-700 to-emerald-800 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
+        <div className="absolute top-10 right-10 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-10 left-10 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
         <div className="container mx-auto max-w-4xl text-center relative z-10">
           <Sparkles className="mx-auto mb-6 animate-pulse" size={48} />
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -299,7 +380,7 @@ export default function ServicesPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/booking"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0a9fe1] rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-emerald-700 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
             >
               Get a Quote
               <ArrowRight size={20} />

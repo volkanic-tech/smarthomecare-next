@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#0a9fe1",
-        accent: "#f370ae",
-        light: "#f6f6f6",
-        dark: "#1a1a1a",
+        primary: "#059669",
+        accent: "#d97706",
+        light: "#f8fafc",
+        dark: "#1e293b",
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',
