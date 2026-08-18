@@ -1,166 +1,256 @@
-'use client';
+import {
+  Shield,
+  UserCheck,
+  Car,
+  Leaf,
+  Sparkles,
+  Heart,
+  Shirt,
+  Utensils,
+  ShoppingBag,
+  CheckCircle,
+  ArrowRight,
+  ArrowUpRight,
+  Phone,
+} from "lucide-react";
 
-import { Shield, UserCheck, Car, Leaf, Sparkles, Heart, Shirt, Utensils, ShoppingBag, CheckCircle, ArrowRight, Phone } from 'lucide-react';
-import Link from 'next/link';
+type LucideIcon = typeof Shield;
+
+interface Service {
+  id: string;
+  icon: LucideIcon;
+  image: string;
+  title: string;
+  tagline: string;
+  description: string;
+  features: string[];
+  empowerment: string;
+  accent: "sky" | "rose";
+}
 
 export default function ServicesPage() {
-  const services = [
+  const services: Service[] = [
     {
-      id: 'home-safety',
+      id: "home-safety",
       icon: Shield,
-      title: 'Home Safety, Minor Repairs & Comfort Maintenance',
-      tagline: 'Keep your home a safe haven.',
-      description: 'We understand the importance of a secure living environment. Our team assists with minor maintenance tasks that ensure your home remains safe, accessible, and comfortable year-round.',
+      image:
+        "https://images.pexels.com/photos/4981798/pexels-photo-4981798.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Home Safety, Minor Repairs & Comfort Maintenance",
+      tagline: "Keep your home a safe haven.",
+      description:
+        "We understand the importance of a secure living environment. Our team assists with minor maintenance tasks that ensure your home remains safe, accessible, and comfortable year-round.",
       features: [
-        'Changing lightbulbs',
-        'Minor pathway clearing',
-        'Testing smoke alarms',
-        'Adjusting trip hazards',
-        'Basic home comfort checks'
+        "Changing lightbulbs",
+        "Minor pathway clearing",
+        "Testing smoke alarms",
+        "Adjusting trip hazards",
+        "Basic home comfort checks",
       ],
-      empowerment: 'You can move freely and safely around your home without worrying about maintenance risks.',
-      borderColor: 'border-[#0a9fe1]'
+      empowerment:
+        "You can move freely and safely around your home without worrying about maintenance risks.",
+      accent: "sky",
     },
     {
-      id: 'personal-care',
+      id: "personal-care",
       icon: UserCheck,
-      title: 'Dignified Personal Care & Morning Routine Support',
-      tagline: 'Start every day with confidence and grace.',
-      description: 'Personal care is deeply private. Our compassionate caregivers provide discrete, respectful assistance tailored to your exact preferences, ensuring you look and feel your best.',
+      image:
+        "https://images.pexels.com/photos/7551675/pexels-photo-7551675.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Dignified Personal Care & Morning Routine Support",
+      tagline: "Start every day with confidence and grace.",
+      description:
+        "Personal care is deeply private. Our compassionate caregivers provide discrete, respectful assistance tailored to your exact preferences, ensuring you look and feel your best.",
       features: [
-        'Assistance with showering/bathing',
-        'Grooming and dressing',
-        'Personal hygiene support',
-        'Morning and evening routines'
+        "Assistance with showering/bathing",
+        "Grooming and dressing",
+        "Personal hygiene support",
+        "Morning and evening routines",
       ],
-      empowerment: 'Maintains your personal dignity and wellbeing, helping you face the day with confidence.',
-      borderColor: 'border-[#f370ae]'
+      empowerment:
+        "Maintains your personal dignity and wellbeing, helping you face the day with confidence.",
+      accent: "rose",
     },
     {
-      id: 'transport',
+      id: "transport",
       icon: Car,
-      title: 'Independent Mobility & Assisted Transport Services',
-      tagline: 'Stay connected to the people and places you love.',
-      description: 'Giving up driving shouldn\'t mean giving up your active life. Our safe, reliable transport services ensure you never miss an appointment or a social gathering.',
+      image:
+        "https://images.pexels.com/photos/6647024/pexels-photo-6647024.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Independent Mobility & Assisted Transport Services",
+      tagline: "Stay connected to the people and places you love.",
+      description:
+        "Giving up driving shouldn't mean giving up your active life. Our safe, reliable transport services ensure you never miss an appointment or a social gathering.",
       features: [
-        'Transport to medical appointments',
-        'Driving to social events',
-        'Visiting family and friends',
-        'Assistance navigating public spaces'
+        "Transport to medical appointments",
+        "Driving to social events",
+        "Visiting family and friends",
+        "Assistance navigating public spaces",
       ],
-      empowerment: 'Eliminates the stress of travel and keeps you actively engaged in your local community.',
-      borderColor: 'border-[#0a9fe1]'
+      empowerment:
+        "Eliminates the stress of travel and keeps you actively engaged in your local community.",
+      accent: "sky",
     },
     {
-      id: 'garden',
+      id: "garden",
       icon: Leaf,
-      title: 'Garden Sanctuary & Outdoor Living Care',
-      tagline: 'Enjoy the beauty of your garden without the strain.',
-      description: 'A well-kept garden is a source of joy. We provide gentle upkeep so you can continue to enjoy your outdoor spaces safely.',
+      image:
+        "https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Garden Sanctuary & Outdoor Living Care",
+      tagline: "Enjoy the beauty of your garden without the strain.",
+      description:
+        "A well-kept garden is a source of joy. We provide gentle upkeep so you can continue to enjoy your outdoor spaces safely.",
       features: [
-        'Light weeding',
-        'Watering plants',
-        'Sweeping paths',
-        'Minor pruning',
-        'Keeping outdoor areas safe and tidy'
+        "Light weeding",
+        "Watering plants",
+        "Sweeping paths",
+        "Minor pruning",
+        "Keeping outdoor areas safe and tidy",
       ],
-      empowerment: 'Allows you to relax in a beautiful, hazard-free outdoor environment that brings you peace.',
-      borderColor: 'border-[#f370ae]'
+      empowerment:
+        "Allows you to relax in a beautiful, hazard-free outdoor environment that brings you peace.",
+      accent: "rose",
     },
     {
-      id: 'cleaning',
+      id: "cleaning",
       icon: Sparkles,
-      title: 'Gentle Home Cleaning & Domestic Housekeeping',
-      tagline: 'A fresh, clean home for your comfort and health.',
-      description: 'Let us take the burden of household chores off your shoulders. We provide meticulous, gentle cleaning services that respect your space and belongings.',
+      image:
+        "https://the-clean-home.com/wp-content/uploads/2025/08/male-housekeeper.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Gentle Home Cleaning & Domestic Housekeeping",
+      tagline: "A fresh, clean home for your comfort and health.",
+      description:
+        "Let us take the burden of household chores off your shoulders. We provide meticulous, gentle cleaning services that respect your space and belongings.",
       features: [
-        'Vacuuming and mopping',
-        'Dusting surfaces',
-        'Wiping down kitchen/bathroom surfaces',
-        'General tidying'
+        "Vacuuming and mopping",
+        "Dusting surfaces",
+        "Wiping down kitchen/bathroom surfaces",
+        "General tidying",
       ],
-      empowerment: 'Frees up your time and energy, providing a hygienic and uplifting environment to live in.',
-      borderColor: 'border-[#0a9fe1]'
+      empowerment:
+        "Frees up your time and energy, providing a hygienic and uplifting environment to live in.",
+      accent: "sky",
     },
     {
-      id: 'companionship',
+      id: "companionship",
       icon: Heart,
-      title: 'Meaningful Social Connection & Heartfelt Companionship',
-      tagline: 'Because a good chat can brighten the whole day.',
-      description: 'Emotional wellbeing is just as important as physical health. Our caregivers provide genuine companionship, sharing stories, hobbies, and a warm cup of tea.',
+      image:
+        "https://plus.unsplash.com/premium_photo-1663100660770-ee436c2e033a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Meaningful Social Connection & Heartfelt Companionship",
+      tagline: "Because a good chat can brighten the whole day.",
+      description:
+        "Emotional wellbeing is just as important as physical health. Our caregivers provide genuine companionship, sharing stories, hobbies, and a warm cup of tea.",
       features: [
-        'Friendly conversation',
-        'Playing cards or board games',
-        'Sharing hobbies',
-        'Reading together',
-        'Enjoying a walk'
+        "Friendly conversation",
+        "Playing cards or board games",
+        "Sharing hobbies",
+        "Reading together",
+        "Enjoying a walk",
       ],
-      empowerment: 'Fosters joy, reduces isolation, and keeps your mind active and engaged.',
-      borderColor: 'border-[#f370ae]'
+      empowerment:
+        "Fosters joy, reduces isolation, and keeps your mind active and engaged.",
+      accent: "rose",
     },
     {
-      id: 'laundry',
+      id: "laundry",
       icon: Shirt,
-      title: 'Fresh Linen, Laundry & Wardrobe Care',
-      tagline: 'The comfort of fresh clothes and crisp sheets.',
-      description: 'Managing laundry can be physically demanding. We handle your washing and wardrobe organisation with care, ensuring you always have what you need ready to wear.',
+      image:
+        "https://images.pexels.com/photos/4440566/pexels-photo-4440566.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Fresh Linen, Laundry & Wardrobe Care",
+      tagline: "The comfort of fresh clothes and crisp sheets.",
+      description:
+        "Managing laundry can be physically demanding. We handle your washing and wardrobe organisation with care, ensuring you always have what you need ready to wear.",
       features: [
-        'Washing, drying, folding',
-        'Light ironing',
-        'Changing bed linen',
-        'Organising clothing'
+        "Washing, drying, folding",
+        "Light ironing",
+        "Changing bed linen",
+        "Organising clothing",
       ],
-      empowerment: 'Removes the physical strain of heavy lifting and ensures you always feel fresh and comfortable.',
-      borderColor: 'border-[#0a9fe1]'
+      empowerment:
+        "Removes the physical strain of heavy lifting and ensures you always feel fresh and comfortable.",
+      accent: "sky",
     },
     {
-      id: 'meals',
+      id: "meals",
       icon: Utensils,
-      title: 'Nourishing Meal Preparation & Daily Culinary Support',
-      tagline: 'Delicious, home-cooked meals tailored just for you.',
-      description: 'Good nutrition is the foundation of health. We assist with meal planning and preparation, catering to your dietary requirements and personal tastes.',
+      image:
+        "https://images.pexels.com/photos/10432860/pexels-photo-10432860.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Nourishing Meal Preparation & Daily Culinary Support",
+      tagline: "Delicious, home-cooked meals tailored just for you.",
+      description:
+        "Good nutrition is the foundation of health. We assist with meal planning and preparation, catering to your dietary requirements and personal tastes.",
       features: [
-        'Grocery inventory',
-        'Preparing breakfasts, lunches, or dinners',
-        'Batch cooking',
-        'Post-meal kitchen clean-up'
+        "Grocery inventory",
+        "Preparing breakfasts, lunches, or dinners",
+        "Batch cooking",
+        "Post-meal kitchen clean-up",
       ],
-      empowerment: 'Ensures you maintain a healthy diet with meals you genuinely enjoy, without the exhaustion of cooking.',
-      borderColor: 'border-[#f370ae]'
+      empowerment:
+        "Ensures you maintain a healthy diet with meals you genuinely enjoy, without the exhaustion of cooking.",
+      accent: "rose",
     },
     {
-      id: 'shopping',
+      id: "shopping",
       icon: ShoppingBag,
-      title: 'Guided Shopping & Essential Daily Errands',
-      tagline: 'Hassle-free management of your daily essentials.',
-      description: 'Whether you want to browse the aisles together or prefer us to handle the list, we make sure your pantry is stocked and your errands are complete.',
+      image:
+        "https://images.pexels.com/photos/4124939/pexels-photo-4124939.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      title: "Guided Shopping & Essential Daily Errands",
+      tagline: "Hassle-free management of your daily essentials.",
+      description:
+        "Whether you want to browse the aisles together or prefer us to handle the list, we make sure your pantry is stocked and your errands are complete.",
       features: [
-        'Grocery shopping (accompanied or on your behalf)',
-        'Picking up prescriptions',
-        'Posting mail',
-        'Running basic local errands'
+        "Grocery shopping (accompanied or on your behalf)",
+        "Picking up prescriptions",
+        "Posting mail",
+        "Running basic local errands",
       ],
-      empowerment: 'Keeps your household running smoothly while giving you the choice to participate as much or as little as you like.',
-      borderColor: 'border-[#0a9fe1]'
-    }
+      empowerment:
+        "Keeps your household running smoothly while giving you the choice to participate as much or as little as you like.",
+      accent: "sky",
+    },
   ];
 
+  const accentMap = {
+    sky: {
+      iconBg: "bg-sky-50",
+      iconText: "text-[#0a9fe1]",
+      ring: "group-hover:ring-[#0a9fe1]/30",
+      glow: "from-[#0a9fe1]/8 to-[#0a9fe1]/0",
+      chip: "bg-[#0a9fe1]/10 text-[#0a9fe1]",
+      number: "group-hover:text-[#0a9fe1]/15",
+      titleHover: "group-hover:text-[#0a9fe1]",
+      link: "text-[#0a9fe1]",
+      bar: "from-[#0a9fe1] via-sky-400 to-[#f370ae]",
+    },
+    rose: {
+      iconBg: "bg-rose-50",
+      iconText: "text-[#f370ae]",
+      ring: "group-hover:ring-[#f370ae]/30",
+      glow: "from-[#f370ae]/8 to-[#f370ae]/0",
+      chip: "bg-[#f370ae]/10 text-[#f370ae]",
+      number: "group-hover:text-[#f370ae]/15",
+      titleHover: "group-hover:text-[#f370ae]",
+      link: "text-[#f370ae]",
+      bar: "from-[#f370ae] via-rose-400 to-[#0a9fe1]",
+    },
+  } as const;
+
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-hidden bg-slate-50/60">
       {/* Hero Section */}
       <section className="relative bg-[#f6f6f6] pt-32 pb-20 px-4">
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto text-center">
-            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#0a9fe1]/10 to-[#f370ae]/10 rounded-full mb-6 animate-fade-in">
+            <div className="inline-block px-4 py-2 bg-gradient-to-r from-[#0a9fe1]/10 to-[#f370ae]/10 rounded-full mb-6">
               <span className="text-sm font-semibold bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] bg-clip-text text-transparent">
                 OUR SERVICES
               </span>
             </div>
-            <h1 className="text-[#f370ae] text-5xl md:text-7xl font-bold mb-6 animate-slide-up">
-              Tailored, High-Quality <span className="text-[#0a9fe1]">In-Home Care</span>
+            <h1 className="text-[#f370ae] text-5xl md:text-7xl font-bold mb-6">
+              Tailored, High-Quality{" "}
+              <span className="text-[#0a9fe1]">In-Home Care</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed animate-slide-up animation-delay-200">
-              Your home, your routine, your choices. We offer a comprehensive suite of flexible services designed to support your independence and enhance your quality of life. Explore how we can help you thrive at home.
+            <p className="text-xl md:text-2xl text-gray-700 leading-relaxed">
+              Your home, your routine, your choices. We offer a comprehensive
+              suite of flexible services designed to support your independence
+              and enhance your quality of life. Explore how we can help you
+              thrive at home.
             </p>
           </div>
         </div>
@@ -169,32 +259,98 @@ export default function ServicesPage() {
       {/* Services Grid (Overview) */}
       <section className="py-24 px-4 bg-white">
         <div className="container mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Section Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
+            <div className="inline-block px-4 py-1.5 bg-[#0a9fe1]/10 rounded-full mb-2">
+              <span className="text-xs font-bold tracking-wider text-[#0a9fe1] uppercase">
+                Quick Overview
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+              Services Tailored to{" "}
+              <span className="text-[#0a9fe1]">Your Lifestyle</span>
+            </h2>
+            <p className="text-gray-600 text-base md:text-lg">
+              Click any service below to explore included tasks and how we
+              empower your daily independence.
+            </p>
+          </div>
+
+          {/* Responsive Services Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const a = accentMap[service.accent];
               return (
-                <div
+                <a
                   key={service.id}
-                  className={`group bg-[#f6f6f6] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer animate-slide-up border-b-4 ${service.borderColor}`}
-                  style={{ animationDelay: `${index * 50}ms` }}
+                  href={`#${service.id}-details`}
+                  className={`group relative flex flex-col bg-white rounded-[28px] shadow-sm ring-1 ring-gray-100 ${a.ring} hover:ring-2 hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 overflow-hidden`}
                 >
-                  <div className="relative h-48 bg-gradient-to-br from-[#0a9fe1]/10 to-[#f370ae]/10 flex items-center justify-center overflow-hidden">
-                    <Icon size={80} className="text-[#0a9fe1]/30 group-hover:scale-110 transition-transform duration-500" />
-                  </div>
-                  <div className="p-6 bg-white flex flex-col h-full">
-                    <h3 className="text-2xl font-bold text-[#0a9fe1] mb-2">{service.title}</h3>
-                    <p className="text-[#f370ae] font-semibold mb-3">{service.tagline}</p>
-                    <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{service.description}</p>
+                  {/* Image Header */}
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
+                    />
+                    {/* Gradient overlay for legibility */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
 
-                    <a
-                      href={`#${service.id}-details`}
-                      className="inline-flex items-center gap-2 text-[#0a9fe1] font-semibold hover:gap-3 transition-all mt-auto"
+                    {/* Top gradient accent bar */}
+                    <div
+                      className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${a.bar} opacity-90 z-10`}
+                    />
+
+                    {/* Icon badge overlapping bottom-left of image */}
+                    <div
+                      className={`absolute -bottom-6 left-6 w-14 h-14 rounded-2xl bg-white shadow-lg ring-1 ring-gray-100 flex items-center justify-center ${a.iconText} transition-transform duration-300 group-hover:scale-110 z-10`}
                     >
-                      View Details
-                      <ArrowRight size={18} />
-                    </a>
+                      <Icon size={26} />
+                    </div>
+
+                    {/* Service number top-right */}
+                    <span
+                      className={`absolute top-4 right-4 text-3xl font-black text-white/70 drop-shadow-sm select-none z-10`}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                   </div>
-                </div>
+
+                  {/* Body */}
+                  <div className="relative pt-9 p-6">
+                    {/* Title & Tagline */}
+                    <h3
+                      className={`text-xl font-bold text-gray-900 ${a.titleHover} transition-colors mb-2 line-clamp-2`}
+                    >
+                      {service.title}
+                    </h3>
+                    <p
+                      className={`text-[11px] font-bold uppercase tracking-[0.08em] ${a.chip} inline-block px-2.5 py-1 rounded-full mb-4`}
+                    >
+                      {service.tagline}
+                    </p>
+
+                    {/* Description */}
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                      {service.description}
+                    </p>
+
+                    {/* Bottom Action Area */}
+                    <div className="relative pt-4 border-t border-gray-100 mt-auto">
+                      <span
+                        className={`inline-flex items-center gap-2 text-sm font-bold ${a.link}`}
+                      >
+                        <span>View Full Details</span>
+                        <ArrowUpRight
+                          size={16}
+                          className="transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                        />
+                      </span>
+                    </div>
+                  </div>
+                </a>
               );
             })}
           </div>
@@ -203,58 +359,131 @@ export default function ServicesPage() {
 
       {/* Detailed Services Section */}
       <section className="py-24 px-4 bg-[#f6f6f6]">
-        <div className="container mx-auto">
-          <div className="space-y-16 max-w-6xl mx-auto">
+        <div className="container mx-auto max-w-7xl">
+          <div className="space-y-24">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const a = accentMap[service.accent];
+              const isEven = index % 2 === 0;
               return (
-                <div
+                <article
                   key={service.id}
                   id={`${service.id}-details`}
-                  className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center bg-white rounded-3xl shadow-lg p-8 md:p-12 hover:shadow-xl transition-all animate-slide-up`}
+                  className="scroll-mt-24"
                 >
-                  {/* Content Side */}
-                  <div className="lg:w-1/2">
-                    <div className="inline-block w-20 h-20 bg-gradient-to-br from-[#0a9fe1] to-[#f370ae] rounded-2xl flex items-center justify-center mb-6">
-                      <Icon className="text-white" size={40} />
-                    </div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#0a9fe1] mb-3">
-                      {service.title}
-                    </h2>
-                    <p className="text-[#f370ae] text-lg font-semibold mb-4">
-                      {service.tagline}
-                    </p>
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-
-                    <div className="bg-[#0a9fe1]/5 rounded-xl p-6 mb-6 border-l-4 border-[#0a9fe1]">
-                      <p className="font-semibold text-[#0a9fe1] mb-1">How this empowers you:</p>
-                      <p className="text-gray-700 italic">"{service.empowerment}"</p>
-                    </div>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3 rounded-full font-semibold hover:shadow-lg transition-all transform hover:scale-105"
+                  {/* Row wrapper */}
+                  <div
+                    className={`grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center`}
+                  >
+                    {/* Image Panel */}
+                    <div
+                      className={`lg:col-span-6 ${isEven ? "lg:order-1" : "lg:order-2"}`}
                     >
-                      Enquire About This Service
-                      <ArrowRight size={20} />
-                    </Link>
-                  </div>
-
-                  {/* Features Side */}
-                  <div className="lg:w-1/2 lg:pl-12">
-                    <h3 className="text-2xl font-bold text-[#0a9fe1] mb-6">Included Tasks:</h3>
-                    <div className="grid grid-cols-1 gap-4">
-                      {service.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start gap-3 bg-[#f6f6f6] p-4 rounded-xl">
-                          <CheckCircle className="text-[#0a9fe1] flex-shrink-0 mt-0.5" size={24} />
-                          <span className="text-gray-700 font-medium">{feature}</span>
+                      <div className="relative group/img rounded-[28px] overflow-hidden shadow-xl ring-1 ring-gray-200">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={service.image}
+                            alt={service.title}
+                            loading="lazy"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover/img:scale-105"
+                          />
                         </div>
-                      ))}
+                        {/* Gradient accent frame */}
+                        <div
+                          className={`absolute inset-0 ring-2 ring-inset ${isEven ? "ring-[#0a9fe1]/15" : "ring-[#f370ae]/15"} rounded-[28px] pointer-events-none`}
+                        />
+                        {/* Floating icon medallion */}
+                        <div
+                          className={`absolute top-5 left-5 w-16 h-16 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center ${a.iconText}`}
+                        >
+                          <Icon size={30} />
+                        </div>
+                        {/* Big number watermark */}
+                        <span className="absolute bottom-4 right-5 text-7xl font-black text-white/80 drop-shadow-md select-none">
+                          {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Content Panel */}
+                    <div
+                      className={`lg:col-span-6 ${isEven ? "lg:order-2" : "lg:order-1"} space-y-6`}
+                    >
+                      {/* Eyebrow */}
+                      {/* <div className="flex items-center gap-3">
+                        <span
+                          className={`h-px w-12 ${a.accent === "sky" ? "bg-[#0a9fe1]" : "bg-[#f370ae]"}`}
+                        />
+                        <span
+                          className={`text-xs font-bold uppercase tracking-[0.18em] ${a.iconText}`}
+                        >
+                          Service {String(index + 1).padStart(2, "0")}
+                        </span>
+                      </div> */}
+
+                      {/* Title */}
+                      <h2 className="text-3xl md:text-[2.5rem] leading-[1.1] font-bold text-gray-900">
+                        {service.title}
+                      </h2>
+
+                      {/* Tagline */}
+                      <p className={`text-lg font-semibold ${a.iconText}`}>
+                        {service.tagline}
+                      </p>
+
+                      {/* Description */}
+                      <p className="text-gray-600 text-base leading-relaxed">
+                        {service.description}
+                      </p>
+
+                      {/* Empowerment callout */}
+                      <div
+                        className={`relative rounded-2xl p-5 pl-6 ${a.accent === "sky" ? "bg-[#0a9fe1]/5" : "bg-[#f370ae]/5"}`}
+                      >
+                        <span
+                          className={`absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl ${a.accent === "sky" ? "bg-[#0a9fe1]" : "bg-[#f370ae]"}`}
+                        />
+                        <p
+                          className={`text-sm font-bold uppercase tracking-wide ${a.iconText} mb-1`}
+                        >
+                          How this empowers you
+                        </p>
+                        <p className="text-gray-700 italic leading-relaxed">
+                          “{service.empowerment}”
+                        </p>
+                      </div>
+
+                      {/* Features as chips */}
+                      <div>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">
+                          Included Tasks
+                        </h3>
+                        <div className="flex flex-wrap gap-2.5">
+                          {service.features.map((feature, idx) => (
+                            <span
+                              key={idx}
+                              className={`inline-flex items-center gap-1.5 ${a.accent === "sky" ? "bg-[#0a9fe1]/8 text-[#0a9fe1]" : "bg-[#f370ae]/8 text-[#f370ae]"} text-sm font-semibold px-3.5 py-2 rounded-full`}
+                            >
+                              <CheckCircle size={15} />
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* CTA */}
+                      <div className="pt-2">
+                        {/* <a
+                          href="/contact"
+                          className={`inline-flex items-center gap-2 ${a.accent === "sky" ? "bg-[#0a9fe1]" : "bg-[#f370ae]"} text-white px-7 py-3.5 rounded-full font-semibold hover:shadow-xl transition-all transform hover:scale-[1.03]`}
+                        >
+                          Enquire About This Service
+                          <ArrowRight size={18} />
+                        </a> */}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
@@ -262,31 +491,77 @@ export default function ServicesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#0a9fe1] via-[#f370ae] to-[#0a9fe1] text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/pattern.svg')] opacity-10"></div>
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <Heart className="mx-auto mb-6 animate-pulse" size={48} />
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Ready to Design Your Care Plan?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Reach out to our local Tasmanian team today for a confidential, no-obligation conversation about how we can support you.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0a9fe1] rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
-            >
-              Book a Free Consultation
-              <ArrowRight size={20} />
-            </Link>
-            <a
-              href="tel:1300762782"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-sm text-white rounded-full font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
-            >
-              <Phone size={20} />
-              Call 1300 SMART
-            </a>
+      <section className="relative py-28 px-4 overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.pexels.com/photos/7328485/pexels-photo-7328485.jpeg?auto=compress&cs=tinysrgb&h=900&w=1600"
+            alt="Happy senior couple enjoying life"
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+          {/* Dark gradient overlay for contrast */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0a9fe1]/85 via-[#0a9fe1]/70 to-[#f370ae]/75" />
+        </div>
+
+        {/* Decorative floating blobs */}
+        <div className="pointer-events-none absolute top-10 left-10 w-64 h-64 rounded-full bg-white/5 blur-3xl" />
+        <div className="pointer-events-none absolute bottom-10 right-10 w-72 h-72 rounded-full bg-[#f370ae]/20 blur-3xl" />
+
+        {/* Content card */}
+        <div className="container mx-auto max-w-3xl relative z-10">
+          <div className="text-center text-white">
+            {/* Floating badge */}
+            <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/15 backdrop-blur-md rounded-full mb-8 border border-white/20">
+              <Heart className="text-rose-200" size={18} fill="currentColor" />
+              <span className="text-sm font-semibold tracking-wide">
+                Personalised Care Plans
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-6xl font-bold mb-5 leading-[1.1] drop-shadow-sm">
+              Ready to Design
+              <br />
+              Your Care Plan?
+            </h2>
+            <p className="text-lg md:text-xl mb-10 opacity-90 max-w-xl mx-auto leading-relaxed">
+              Reach out to our local Tasmanian team today for a confidential,
+              no-obligation conversation about how we can support you.
+            </p>
+
+            {/* Action buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <a
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0a9fe1] rounded-full font-bold text-lg hover:scale-105 transition-all shadow-2xl"
+              >
+                Book a Free Consultation
+                <ArrowRight size={20} />
+              </a>
+              <a
+                href="tel:1300762782"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 transition-all"
+              >
+                <Phone size={20} />
+                Call 1300 SMART
+              </a>
+            </div>
+
+            {/* Trust signals */}
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/80">
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle size={16} className="text-white" />
+                No obligation
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle size={16} className="text-white" />
+                Local Tasmanian team
+              </span>
+              <span className="inline-flex items-center gap-2">
+                <CheckCircle size={16} className="text-white" />
+                Confidential &amp; caring
+              </span>
+            </div>
           </div>
         </div>
       </section>
