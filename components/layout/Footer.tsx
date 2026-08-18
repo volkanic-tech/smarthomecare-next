@@ -19,25 +19,20 @@ export default function Footer() {
               <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#0a9fe1]/10 to-[#f370ae]/10 px-4 py-2 rounded-full mb-4">
                 <Award className="text-[#0a9fe1]" size={18} />
                 <span className="text-sm font-semibold bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] bg-clip-text text-transparent">
-                  Join 5,000+ Happy Customers
+                  Trilogy Care Partnership Notice
                 </span>
               </div>
               <h3 className="text-3xl font-bold text-gray-900 mb-3">
-                Get Exclusive Cleaning Tips & Offers
+                Maximise Your Home Care Package
               </h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                Subscribe to our newsletter for expert cleaning advice, seasonal tips, and special discounts.
+                We proudly partner with Trilogy Care, Australia's leading Home Care Package (HCP) management provider. Enjoy low management fees, greater flexibility, and more hours of direct, high-quality local care.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-6 py-3.5 rounded-full border-2 border-gray-200 focus:border-[#0a9fe1] focus:outline-none transition-colors"
-                />
-                <button className="bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
-                  <span>Subscribe</span>
+              <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
+                <Link href="/home-care-packages" className="bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                  <span>Learn More About HCP</span>
                   <Send size={18} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -62,22 +57,22 @@ export default function Footer() {
                   <h3 className="text-xl font-bold bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] bg-clip-text text-transparent">
                     Smart Home Care
                   </h3>
-                  <p className="text-xs text-gray-600 font-medium">Premium Cleaning Services</p>
+                  <p className="text-xs text-gray-600 font-medium">Empowering Independence, Enriching Lives</p>
                 </div>
               </Link>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                Melbourne's trusted premium cleaning service provider since 2020. We deliver exceptional cleaning services with a personal touch, ensuring every space shines.
+                At Smart Home Care Services, we believe that growing older should never mean giving up independence, dignity, or the comfort of home. We are dedicated to providing compassionate, reliable, and tailored home care across Tasmania.
               </p>
               
               {/* Trust Badges */}
               <div className="flex flex-wrap gap-3 mb-6">
                 <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100">
                   <Shield className="text-[#0a9fe1]" size={16} />
-                  <span className="text-xs font-semibold text-gray-700">Fully Insured</span>
+                  <span className="text-xs font-semibold text-gray-700">100% Tasmanian Local</span>
                 </div>
                 <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100">
                   <Clock className="text-[#f370ae]" size={16} />
-                  <span className="text-xs font-semibold text-gray-700">24/7 Support</span>
+                  <span className="text-xs font-semibold text-gray-700">Tailored Care Plans</span>
                 </div>
               </div>
 
@@ -112,10 +107,10 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
+                  { name: 'Home', href: '/' },
                   { name: 'About Us', href: '/about' },
-                  { name: 'Our Services', href: '/services' },
+                  { name: 'Home Care Packages', href: '/home-care-packages' },
                   { name: 'Service Areas', href: '/areas' },
-                  { name: 'Booking', href: '/booking' },
                   { name: 'Contact Us', href: '/contact' }
                 ].map((link, index) => (
                   <li key={index}>
@@ -139,12 +134,15 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { name: 'Residential Cleaning', href: '/services#residential' },
-                  { name: 'Commercial Cleaning', href: '/services#commercial' },
-                  { name: 'Carpet Cleaning', href: '/services#carpet' },
-                  { name: 'Window Cleaning', href: '/services#window' },
-                  { name: 'End of Lease', href: '/services#end-of-lease' },
-                  { name: 'Spring Cleaning', href: '/services#spring' }
+                  { name: 'Home Safety & Maintenance', href: '/services#home-safety' },
+                  { name: 'Personal Care Support', href: '/services#personal-care' },
+                  { name: 'Assisted Transport', href: '/services#transport' },
+                  { name: 'Garden & Outdoor Care', href: '/services#garden' },
+                  { name: 'Home Cleaning', href: '/services#cleaning' },
+                  { name: 'Social Companionship', href: '/services#companionship' },
+                  { name: 'Linen & Laundry Care', href: '/services#laundry' },
+                  { name: 'Meal Preparation', href: '/services#meals' },
+                  { name: 'Shopping & Errands', href: '/services#shopping' }
                 ].map((service, index) => (
                   <li key={index}>
                     <Link 
@@ -173,7 +171,7 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">Call Us Now</p>
-                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors">1300 SMART CLEAN</p>
+                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors">1300 SMART</p>
                     </div>
                   </a>
                 </li>
@@ -195,8 +193,8 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">Location</p>
-                      <p className="font-semibold text-gray-900">Melbourne, Victoria</p>
-                      <p className="text-xs text-gray-500 mt-1">Serving All Metro Areas</p>
+                      <p className="font-semibold text-gray-900">Tasmania</p>
+                      <p className="text-xs text-gray-500 mt-1">Devonport | Burnie | Launceston | Hobart</p>
                     </div>
                   </div>
                 </li>
