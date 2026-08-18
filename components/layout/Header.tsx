@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../../public/Logo.png';
 import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { Phone, Menu, X, ChevronDown, Sparkles, Home, Building, Wind, Key, Droplets } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, Sparkles, Shield, UserCheck, Car, Leaf, Heart, Shirt, Utensils, ShoppingBag } from 'lucide-react';
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,19 +31,22 @@ export default function Header() {
   const navigation = [
     { name: 'Home', href: '/' },
     { name: 'About Us', href: '/about' },
-    { name: 'Services', href: '/services', hasDropdown: true },
-    { name: 'Booking', href: '/booking' },
+    { name: 'Our Services', href: '/services', hasDropdown: true },
+    { name: 'Home Care Packages', href: '/home-care-packages' },
+    { name: 'Service Areas', href: '/areas' },
     { name: 'Contact Us', href: '/contact' },
-    { name: 'Areas', href: '/areas' },
   ];
 
   const services = [
-    { name: 'Residential Cleaning', href: '/services#residential', icon: Home, color: 'from-blue-500 to-cyan-500' },
-    { name: 'Commercial Cleaning', href: '/services#commercial', icon: Building, color: 'from-purple-500 to-pink-500' },
-    { name: 'Carpet Cleaning', href: '/services#carpet', icon: Droplets, color: 'from-green-500 to-emerald-500' },
-    { name: 'Window Cleaning', href: '/services#window', icon: Wind, color: 'from-orange-500 to-yellow-500' },
-    { name: 'End of Lease', href: '/services#end-of-lease', icon: Key, color: 'from-red-500 to-rose-500' },
-    { name: 'Spring Cleaning', href: '/services#spring', icon: Sparkles, color: 'from-indigo-500 to-purple-500' },
+    { name: 'Home Safety & Maintenance', href: '/services#home-safety', icon: Shield, color: 'from-blue-500 to-cyan-500' },
+    { name: 'Personal Care Support', href: '/services#personal-care', icon: UserCheck, color: 'from-purple-500 to-pink-500' },
+    { name: 'Assisted Transport', href: '/services#transport', icon: Car, color: 'from-green-500 to-emerald-500' },
+    { name: 'Garden & Outdoor Care', href: '/services#garden', icon: Leaf, color: 'from-orange-500 to-yellow-500' },
+    { name: 'Home Cleaning', href: '/services#cleaning', icon: Sparkles, color: 'from-red-500 to-rose-500' },
+    { name: 'Social Companionship', href: '/services#companionship', icon: Heart, color: 'from-indigo-500 to-purple-500' },
+    { name: 'Linen & Laundry Care', href: '/services#laundry', icon: Shirt, color: 'from-teal-500 to-emerald-500' },
+    { name: 'Meal Preparation', href: '/services#meals', icon: Utensils, color: 'from-orange-400 to-red-400' },
+    { name: 'Shopping & Errands', href: '/services#shopping', icon: ShoppingBag, color: 'from-blue-400 to-indigo-500' },
   ];
 
   return (
@@ -54,7 +57,7 @@ export default function Header() {
           <div className="container mx-auto flex items-center justify-between text-sm">
             <div className="flex items-center gap-2">
               <Sparkles size={16} className="animate-pulse" />
-              <span className="font-medium">New Year Special: Get 20% OFF on your first booking!</span>
+              <span className="font-medium">Proudly serving Tasmanian seniors in Devonport, Burnie, Launceston, and Hobart.</span>
             </div>
             <button 
               onClick={() => setShowPromo(false)}
@@ -102,7 +105,7 @@ export default function Header() {
                 <h1 className="text-lg font-bold bg-[#0a9fe1] bg-clip-text text-transparent">
                   Smart Home Care
                 </h1>
-                <p className="text-xs text-gray-500 font-medium">Premium Cleaning Services</p>
+                <p className="text-xs text-gray-500 font-medium">Empowering Independence, Enriching Lives</p>
               </div>
             </Link>
 
@@ -194,10 +197,10 @@ export default function Header() {
 
               {/* CTA Button */}
               <Link
-                href="/booking"
+                href="/contact"
                 className="hidden lg:inline-flex items-center bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-xl hover:scale-105 transition-all relative overflow-hidden group"
               >
-                <span className="relative z-10">Get Free Quote</span>
+                <span className="relative z-10">Book Free Consultation</span>
                 <span className="absolute inset-0 bg-gradient-to-r from-[#f370ae] to-[#0a9fe1] opacity-0 group-hover:opacity-100 transition-opacity"></span>
               </Link>
 
@@ -246,11 +249,11 @@ export default function Header() {
                     <span>Call 1300 SMART</span>
                   </a>
                   <Link
-                    href="/booking"
+                    href="/contact"
                     className="flex items-center justify-center bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-6 py-3 rounded-full font-semibold text-sm"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Get Free Quote
+                    Book Free Consultation
                   </Link>
                 </div>
               </div>
