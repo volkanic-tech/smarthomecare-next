@@ -244,7 +244,8 @@ export default function Home() {
                     className="w-full max-w-[220px] h-auto object-contain"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
-                      e.currentTarget.nextElementSibling.style.display = "flex";
+                      const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
+                      if (fallback) fallback.style.display = "flex";
                     }}
                   />
                   {/* Inline SVG Fallback */}
