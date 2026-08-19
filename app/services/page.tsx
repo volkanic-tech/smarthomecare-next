@@ -438,10 +438,10 @@ export default function ServicesPage() {
 
                       {/* Empowerment callout */}
                       <div
-                        className={`relative rounded-2xl p-5 pl-6 ${a.accent === "sky" ? "bg-[#0a9fe1]/5" : "bg-[#f370ae]/5"}`}
+                        className={`relative rounded-2xl p-5 pl-6 ${service.accent === "sky" ? "bg-[#0a9fe1]/5" : "bg-[#f370ae]/5"}`}
                       >
                         <span
-                          className={`absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl ${a.accent === "sky" ? "bg-[#0a9fe1]" : "bg-[#f370ae]"}`}
+                          className={`absolute left-0 top-0 bottom-0 w-1.5 rounded-l-2xl ${service.accent === "sky" ? "bg-[#0a9fe1]" : "bg-[#f370ae]"}`}
                         />
                         <p
                           className={`text-sm font-bold uppercase tracking-wide ${a.iconText} mb-1`}
@@ -462,7 +462,7 @@ export default function ServicesPage() {
                           {service.features.map((feature, idx) => (
                             <span
                               key={idx}
-                              className={`inline-flex items-center gap-1.5 ${a.accent === "sky" ? "bg-[#0a9fe1]/8 text-[#0a9fe1]" : "bg-[#f370ae]/8 text-[#f370ae]"} text-sm font-semibold px-3.5 py-2 rounded-full`}
+                              className={`inline-flex items-center gap-1.5 ${service.accent === "sky" ? "bg-[#0a9fe1]/8 text-[#0a9fe1]" : "bg-[#f370ae]/8 text-[#f370ae]"} text-sm font-semibold px-3.5 py-2 rounded-full`}
                             >
                               <CheckCircle size={15} />
                               {feature}
