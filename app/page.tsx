@@ -91,7 +91,7 @@ export default function Home() {
               <div className="relative bg-gradient-to-br from-[#0a9fe1] to-[#f370ae] rounded-3xl p-1 shadow-2xl">
                 <div className="relative rounded-3xl overflow-hidden h-[500px]">
                   <Image
-                    src="/Home/Image101.png"
+                    src="/Home/Image01.jpeg"
                     alt="Compassionate Care Team"
                     fill
                     className="object-cover"
@@ -202,12 +202,7 @@ export default function Home() {
 
               {/* Clean Feature Highlights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-10">
-                {[
-                  "Low Management Fees",
-                  "100% Transparent Pricing",
-                  "More Dedicated Care Hours",
-                  "Complete Financial Control",
-                ].map((item, idx) => (
+                {[].map((item, idx) => (
                   <div
                     key={idx}
                     className="flex items-center gap-3 text-gray-700 font-medium"
@@ -244,7 +239,8 @@ export default function Home() {
                     className="w-full max-w-[220px] h-auto object-contain"
                     onError={(e) => {
                       e.currentTarget.style.display = "none";
-                      const fallback = e.currentTarget.nextElementSibling as HTMLElement | null;
+                      const fallback = e.currentTarget
+                        .nextElementSibling as HTMLElement | null;
                       if (fallback) fallback.style.display = "flex";
                     }}
                   />
@@ -304,69 +300,58 @@ export default function Home() {
             {[
               {
                 title: "Home Safety & Minor Repairs",
-                icon: Shield,
                 image:
                   "https://plus.unsplash.com/premium_photo-1726761637367-afdcd05c2da6?q=80&w=1056&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 desc: "Keep your home safe, functional, and hazard-free. We handle the minor repairs and safety checks so you can relax in total comfort.",
               },
               {
                 title: "Dignified Personal Care",
-                icon: UserCheck,
                 image:
                   "https://plus.unsplash.com/premium_photo-1753382834716-9df70c51d637?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
                 desc: "Start your day with confidence. We offer respectful, discrete assistance with bathing, dressing, and grooming to maintain your dignity.",
               },
               {
                 title: "Independent Mobility & Transport",
-                icon: Car,
                 image:
-                  "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?auto=format&fit=crop&q=80&w=800",
+                  "https://www.achievedisabilitycare.com.au/wp-content/uploads/2025/12/Assist-Travel-Transport.jpg",
                 desc: "Stay connected to your community. We provide safe, reliable transport to medical appointments, social events, and family visits.",
               },
               {
                 title: "Garden Sanctuary & Outdoor Care",
-                icon: Leaf,
                 image:
                   "https://images.unsplash.com/photo-1779636489740-6077a4198be6?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 desc: "Enjoy your outdoor spaces without the heavy lifting. We help maintain your garden’s beauty and safety year-round.",
               },
               {
                 title: "Gentle Home Cleaning",
-                icon: Sparkles,
                 image:
                   "https://plus.unsplash.com/premium_photo-1676934738359-5776825f93be?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                 desc: "A clean home is a comfortable home. We take care of sweeping, mopping, dusting, and general tidying with a gentle touch.",
               },
               {
                 title: "Meaningful Social Connection",
-                icon: Heart,
                 image:
-                  "https://plus.unsplash.com/premium_photo-1663100660770-ee436c2e033a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D",
+                  "https://aaniie.com/wp-content/uploads/2022/06/smartcare-family-consut-1024x683.jpg",
                 desc: "Combat loneliness with a friendly face. We offer engaging conversation, shared hobbies, and genuine companionship.",
               },
               {
                 title: "Fresh Linen & Laundry Care",
-                icon: Shirt,
-                image:
-                  "https://plus.unsplash.com/premium_photo-1761262862895-8deb4076a96f?q=80&w=1174&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                image: "https://secondinningshome.com/images/laundry.png",
                 desc: "Enjoy the comfort of fresh clothes and crisp sheets. We manage your washing, drying, ironing, and wardrobe organisation.",
               },
               {
                 title: "Nourishing Meal Preparation",
-                icon: Utensils,
                 image:
-                  "https://images.unsplash.com/photo-1541557435984-1c79685a082b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+                  "https://images.pexels.com/photos/7551595/pexels-photo-7551595.jpeg",
                 desc: "Savour delicious, healthy meals tailored to your dietary needs. We assist with recipe planning, cooking, and kitchen cleanup.",
               },
               {
                 title: "Guided Shopping & Errands",
-                icon: ShoppingBag,
                 image:
-                  "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&q=80&w=800",
+                  "https://northernlifemagazine.co.uk/wp-content/uploads/sites/2/2026/02/iStock-1744974551.jpg",
                 desc: "Never worry about running out of essentials. We can accompany you to the shops or handle grocery runs on your behalf.",
               },
             ].map((service, i) => {
-              const Icon = service.icon;
               return (
                 <div
                   key={i}
@@ -378,9 +363,6 @@ export default function Home() {
                       alt={service.title}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute top-4 left-4 w-12 h-12 bg-white/90 backdrop-blur-md rounded-xl flex items-center justify-center shadow-sm">
-                      <Icon className="text-[#0a9fe1]" size={24} />
-                    </div>
                   </div>
                   <div className="p-8 flex-1 flex flex-col">
                     <h3 className="text-xl font-bold text-[#0a9fe1] mb-3">
@@ -474,9 +456,7 @@ export default function Home() {
                 ].map((location, idx) => (
                   <div
                     key={idx}
-                    className={`group bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(10,159,225,0.08)] hover:border-[#0a9fe1]/20 transition-all duration-300 flex flex-col hover:-translate-y-1 ${
-                      idx === 1 || idx === 3 ? "sm:translate-y-8" : "" // Staggers the right column on larger screens
-                    }`}
+                    className="group bg-white p-6 md:p-8 rounded-[2rem] border border-gray-100 shadow-[0_8px_30px_rgb(0,0,0,0.03)] hover:shadow-[0_8px_30px_rgb(10,159,225,0.08)] hover:border-[#0a9fe1]/20 transition-all duration-300 flex flex-col hover:-translate-y-1"
                   >
                     <div className="w-14 h-14 bg-blue-50 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#0a9fe1] group-hover:scale-110 transition-all duration-300 border border-blue-100/50">
                       <MapPin

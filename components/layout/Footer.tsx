@@ -1,7 +1,19 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import Logo from '../../public/Logo.png';
-import { Facebook, Instagram, Twitter, Linkedin, Mail, Phone, MapPin, Send, Award, Shield, Clock } from 'lucide-react';
+import Link from "next/link";
+import Image from "next/image";
+import Logo from "../../public/Logo.png";
+import {
+  Facebook,
+  Instagram,
+  Twitter,
+  Linkedin,
+  Mail,
+  Phone,
+  MapPin,
+  Send,
+  Award,
+  Shield,
+  Clock,
+} from "lucide-react";
 
 export default function Footer() {
   return (
@@ -10,7 +22,7 @@ export default function Footer() {
       <div className="absolute inset-0 bg-gradient-to-br from-white via-[#f6f6f6] to-white"></div>
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-[#0a9fe1]/5 to-[#f370ae]/5 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-[#f370ae]/5 to-[#0a9fe1]/5 rounded-full blur-3xl"></div>
-      
+
       <div className="relative">
         {/* Newsletter Section */}
         <div className="border-b border-gray-200">
@@ -26,12 +38,21 @@ export default function Footer() {
                 Maximise Your Home Care Package
               </h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                We proudly partner with Trilogy Care, Australia's leading Home Care Package (HCP) management provider. Enjoy low management fees, greater flexibility, and more hours of direct, high-quality local care.
+                We proudly partner with Trilogy Care, Australia's leading Home
+                Care Package (HCP) management provider. Enjoy low management
+                fees, greater flexibility, and more hours of direct,
+                high-quality local care.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
-                <Link href="/home-care-packages" className="bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl transition-all flex items-center justify-center gap-2 group">
+                <Link
+                  href="/home-care-packages"
+                  className="bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-3.5 rounded-full font-semibold hover:shadow-xl transition-all flex items-center justify-center gap-2 group"
+                >
                   <span>Learn More About HCP</span>
-                  <Send size={18} className="group-hover:translate-x-1 transition-transform" />
+                  <Send
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
                 </Link>
               </div>
             </div>
@@ -45,10 +66,10 @@ export default function Footer() {
             <div className="lg:col-span-4">
               <Link href="/" className="flex items-center space-x-3 mb-6 group">
                 <div className="w-12 h-12 rounded-xl overflow-hidden shadow-lg bg-white p-1 group-hover:scale-110 transition-transform">
-                  <Image 
+                  <Image
                     src={Logo}
-                    alt="Smart Home Care Logo" 
-                    width={48} 
+                    alt="Smart Home Care Logo"
+                    width={48}
                     height={48}
                     className="w-full h-full object-contain"
                   />
@@ -57,32 +78,41 @@ export default function Footer() {
                   <h3 className="text-xl font-bold bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] bg-clip-text text-transparent">
                     Smart Home Care
                   </h3>
-                  <p className="text-xs text-gray-600 font-medium">Empowering Independence, Enriching Lives</p>
+                  <p className="text-xs text-gray-600 font-medium">
+                    Empowering Independence, Enriching Lives
+                  </p>
                 </div>
               </Link>
               <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                At Smart Home Care Services, we believe that growing older should never mean giving up independence, dignity, or the comfort of home. We are dedicated to providing compassionate, reliable, and tailored home care across Tasmania.
+                At Smart Home Care Services, we believe that growing older
+                should never mean giving up independence, dignity, or the
+                comfort of home. We are dedicated to providing compassionate,
+                reliable, and tailored home care across Tasmania.
               </p>
-              
+
               {/* Trust Badges */}
               <div className="flex flex-wrap gap-3 mb-6">
                 <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100">
                   <Shield className="text-[#0a9fe1]" size={16} />
-                  <span className="text-xs font-semibold text-gray-700">100% Tasmanian Local</span>
+                  <span className="text-xs font-semibold text-gray-700">
+                    100% Tasmanian Local
+                  </span>
                 </div>
                 <div className="flex items-center gap-2 bg-white px-3 py-2 rounded-lg shadow-sm border border-gray-100">
                   <Clock className="text-[#f370ae]" size={16} />
-                  <span className="text-xs font-semibold text-gray-700">Tailored Care Plans</span>
+                  <span className="text-xs font-semibold text-gray-700">
+                    Tailored Care Plans
+                  </span>
                 </div>
               </div>
 
               {/* Social Links */}
               <div className="flex gap-3">
                 {[
-                  { icon: Facebook, href: '#', label: 'Facebook' },
-                  { icon: Instagram, href: '#', label: 'Instagram' },
-                  { icon: Twitter, href: '#', label: 'Twitter' },
-                  { icon: Linkedin, href: '#', label: 'LinkedIn' }
+                  { icon: Facebook, href: "#", label: "Facebook" },
+                  { icon: Instagram, href: "#", label: "Instagram" },
+                  { icon: Twitter, href: "#", label: "Twitter" },
+                  { icon: Linkedin, href: "#", label: "LinkedIn" },
                 ].map((social, index) => {
                   const Icon = social.icon;
                   return (
@@ -107,14 +137,14 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { name: 'Home', href: '/' },
-                  { name: 'About Us', href: '/about' },
-                  { name: 'Home Care Packages', href: '/home-care-packages' },
-                  { name: 'Service Areas', href: '/areas' },
-                  { name: 'Contact Us', href: '/contact' }
+                  { name: "Home", href: "/" },
+                  { name: "About Us", href: "/about" },
+                  { name: "Home Care Packages", href: "/home-care-packages" },
+                  { name: "Service Areas", href: "/areas" },
+                  { name: "Contact Us", href: "/contact" },
                 ].map((link, index) => (
                   <li key={index}>
-                    <Link 
+                    <Link
                       href={link.href}
                       className="text-gray-600 hover:text-[#0a9fe1] transition-colors text-sm flex items-center gap-2 group"
                     >
@@ -134,18 +164,27 @@ export default function Footer() {
               </h4>
               <ul className="space-y-3">
                 {[
-                  { name: 'Home Safety & Maintenance', href: '/services#home-safety' },
-                  { name: 'Personal Care Support', href: '/services#personal-care' },
-                  { name: 'Assisted Transport', href: '/services#transport' },
-                  { name: 'Garden & Outdoor Care', href: '/services#garden' },
-                  { name: 'Home Cleaning', href: '/services#cleaning' },
-                  { name: 'Social Companionship', href: '/services#companionship' },
-                  { name: 'Linen & Laundry Care', href: '/services#laundry' },
-                  { name: 'Meal Preparation', href: '/services#meals' },
-                  { name: 'Shopping & Errands', href: '/services#shopping' }
+                  {
+                    name: "Home Safety & Maintenance",
+                    href: "/services#home-safety",
+                  },
+                  {
+                    name: "Personal Care Support",
+                    href: "/services#personal-care",
+                  },
+                  { name: "Assisted Transport", href: "/services#transport" },
+                  { name: "Garden & Outdoor Care", href: "/services#garden" },
+                  { name: "Home Cleaning", href: "/services#cleaning" },
+                  {
+                    name: "Social Companionship",
+                    href: "/services#companionship",
+                  },
+                  { name: "Linen & Laundry Care", href: "/services#laundry" },
+                  { name: "Meal Preparation", href: "/services#meals" },
+                  { name: "Shopping & Errands", href: "/services#shopping" },
                 ].map((service, index) => (
                   <li key={index}>
-                    <Link 
+                    <Link
                       href={service.href}
                       className="text-gray-600 hover:text-[#0a9fe1] transition-colors text-sm flex items-center gap-2 group"
                     >
@@ -165,24 +204,42 @@ export default function Footer() {
               </h4>
               <ul className="space-y-4">
                 <li>
-                  <a href="tel:1300762782" className="flex items-start gap-3 group">
+                  <a
+                    href="tel:0403103555"
+                    className="flex items-start gap-3 group"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0a9fe1]/10 to-[#f370ae]/10 flex items-center justify-center group-hover:from-[#0a9fe1] group-hover:to-[#f370ae] transition-all flex-shrink-0">
-                      <Phone size={18} className="text-[#0a9fe1] group-hover:text-white transition-colors" />
+                      <Phone
+                        size={18}
+                        className="text-[#0a9fe1] group-hover:text-white transition-colors"
+                      />
                     </div>
                     <div>
-                      <p className="text-xs text-gray-500 mb-0.5">Call Us Now</p>
-                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors">1300 SMART</p>
+                      <p className="text-xs text-gray-500 mb-0.5">
+                        Call Us Now
+                      </p>
+                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors">
+                        0403 103 555
+                      </p>
                     </div>
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:info@smarthomecare.com.au" className="flex items-start gap-3 group">
+                  <a
+                    href="mailto:info@smarthomecare.com.au"
+                    className="flex items-start gap-3 group"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0a9fe1]/10 to-[#f370ae]/10 flex items-center justify-center group-hover:from-[#0a9fe1] group-hover:to-[#f370ae] transition-all flex-shrink-0">
-                      <Mail size={18} className="text-[#f370ae] group-hover:text-white transition-colors" />
+                      <Mail
+                        size={18}
+                        className="text-[#f370ae] group-hover:text-white transition-colors"
+                      />
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
-                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors break-all">info@smarthomecare.com.au</p>
+                      <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors break-all">
+                        info@smarthomecare.com.au
+                      </p>
                     </div>
                   </a>
                 </li>
@@ -193,8 +250,10 @@ export default function Footer() {
                     </div>
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">Location</p>
-                      <p className="font-semibold text-gray-900">Tasmania</p>
-                      <p className="text-xs text-gray-500 mt-1">Devonport | Burnie | Launceston | Hobart</p>
+                      <p className="font-semibold text-gray-900">Head Office</p>
+                      <p className="text-xs text-gray-500 mt-1">
+                        45 Forbes St, Devonport TAS 7310
+                      </p>
                     </div>
                   </div>
                 </li>
@@ -206,16 +265,26 @@ export default function Footer() {
           <div className="pt-8 border-t border-gray-200">
             <div className="flex flex-col md:flex-row justify-between items-center gap-4">
               <p className="text-sm text-gray-600">
-                &copy; {new Date().getFullYear()} Smart Home Care Services. All rights reserved.
+                &copy; {new Date().getFullYear()} Smart Home Care Services. All
+                rights reserved.
               </p>
               <div className="flex flex-wrap justify-center gap-6 text-sm">
-                <Link href="/privacy" className="text-gray-600 hover:text-[#0a9fe1] transition-colors">
+                <Link
+                  href="/privacy"
+                  className="text-gray-600 hover:text-[#0a9fe1] transition-colors"
+                >
                   Privacy Policy
                 </Link>
-                <Link href="/terms" className="text-gray-600 hover:text-[#0a9fe1] transition-colors">
+                <Link
+                  href="/terms"
+                  className="text-gray-600 hover:text-[#0a9fe1] transition-colors"
+                >
                   Terms of Service
                 </Link>
-                <Link href="/sitemap" className="text-gray-600 hover:text-[#0a9fe1] transition-colors">
+                <Link
+                  href="/sitemap"
+                  className="text-gray-600 hover:text-[#0a9fe1] transition-colors"
+                >
                   Sitemap
                 </Link>
               </div>

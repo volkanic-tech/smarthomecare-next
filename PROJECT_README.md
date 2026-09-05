@@ -195,7 +195,7 @@ This project is created for Smart Home Care Services.
 
 ## 👥 Support
 
-For support, email info@smarthomecare.com.au or call 1300 SMART CLEAN.
+For support, email info@smarthomecare.com.au or call 0403 103 555 CLEAN.
 
 ---
 
