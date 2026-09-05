@@ -15,8 +15,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Smart Home Care Services - Premium Cleaning Services Melbourne",
-  description: "Professional cleaning services in Melbourne. Residential, commercial, carpet cleaning, and more. Eco-friendly, insured, and satisfaction guaranteed.",
+  title: "Smart Home Care Services - Empowering Independence, Enriching Lives",
+  description:
+    "Compassionate, tailored aged care and Home Care Package (HCP) support across Tasmania. In partnership with Trilogy Care.",
+  icons: {
+    icon: [
+      { url: "/icon.png", type: "image/png" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
 };
 
 export default function RootLayout({

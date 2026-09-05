@@ -38,7 +38,7 @@ export default function Footer() {
                 Maximise Your Home Care Package
               </h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                We proudly partner with Trilogy Care, Australia's leading Home
+                We proudly partner with Trilogy Care, Australia&apos;s leading Home
                 Care Package (HCP) management provider. Enjoy low management
                 fees, greater flexibility, and more hours of direct,
                 high-quality local care.
@@ -109,10 +109,14 @@ export default function Footer() {
               {/* Social Links */}
               <div className="flex gap-3">
                 {[
-                  { icon: Facebook, href: "#", label: "Facebook" },
-                  { icon: Instagram, href: "#", label: "Instagram" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
+                  {
+                    icon: Facebook,
+                    href: "https://www.facebook.com/share/19JW1Nn8H8/",
+                    label: "Facebook",
+                  },
+                  // { icon: Instagram, href: "#", label: "Instagram" },
+                  // { icon: Twitter, href: "#", label: "Twitter" },
+                  // { icon: Linkedin, href: "#", label: "LinkedIn" },
                 ].map((social, index) => {
                   const Icon = social.icon;
                   return (

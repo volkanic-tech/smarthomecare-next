@@ -43,10 +43,10 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navigation = [
+  const navigation: { name: string; href: string; hasDropdown?: boolean }[] = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Our Services", href: "/services" },
+    { name: "Our Services", href: "/services", hasDropdown: true },
     { name: "Home Care Packages", href: "/home-care-packages" },
     { name: "Service Areas", href: "/areas" },
     { name: "Contact Us", href: "/contact" },
@@ -125,9 +125,9 @@ export default function Header() {
       <nav className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
+          <Link href="/" className="flex items-center space-x-3 group shrink-0">
             <div className="relative">
-              <div className="w-12 h-12 rounded-xl overflow-hidden transform transition-transform group-hover:scale-110 shadow-lg bg-white p-1">
+              <div className="w-11 h-11 xl:w-12 xl:h-12 rounded-xl overflow-hidden transform transition-transform group-hover:scale-110 shadow-lg bg-white p-1">
                 <Image
                   src={Logo}
                   alt="Smart Home Care Logo"
@@ -139,18 +139,18 @@ export default function Header() {
               </div>
               <div className="absolute -inset-1 bg-gradient-to-br from-[#0a9fe1] to-[#f370ae] rounded-xl opacity-0 group-hover:opacity-20 blur transition-opacity"></div>
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-lg font-bold bg-[#0a9fe1] bg-clip-text text-transparent">
+            <div className="hidden sm:block whitespace-nowrap">
+              <h1 className="text-base xl:text-lg font-bold bg-[#0a9fe1] bg-clip-text text-transparent leading-tight">
                 Smart Home Care
               </h1>
-              <p className="text-xs text-gray-500 font-medium">
+              <p className="text-[11px] xl:text-xs text-gray-500 font-medium hidden md:block">
                 Empowering Independence, Enriching Lives
               </p>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-1">
+          <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -160,17 +160,17 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`relative px-4 py-2 text-sm font-medium transition-colors group flex items-center gap-1 ${
+                  className={`relative px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors group flex items-center gap-1 whitespace-nowrap ${
                     pathname === item.href
                       ? "text-[#0a9fe1]"
                       : "text-gray-700 hover:text-[#0a9fe1]"
                   }`}
                 >
-                  {item.name}
+                  <span className="whitespace-nowrap">{item.name}</span>
                   {item.hasDropdown && (
                     <ChevronDown
-                      size={16}
-                      className={`transition-transform ${servicesOpen ? "rotate-180" : ""}`}
+                      size={14}
+                      className={`transition-transform shrink-0 ${servicesOpen ? "rotate-180" : ""}`}
                     />
                   )}
                   <span
@@ -196,11 +196,11 @@ export default function Header() {
                             onClick={() => setServicesOpen(false)}
                           >
                             <div
-                              className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center transform group-hover:scale-110 transition-transform`}
+                              className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center transform group-hover:scale-110 transition-transform shrink-0`}
                             >
                               <Icon size={20} className="text-white" />
                             </div>
-                            <span className="text-sm font-medium text-gray-700 group-hover:text-[#0a9fe1] transition-colors">
+                            <span className="text-sm font-medium text-gray-700 group-hover:text-[#0a9fe1] transition-colors whitespace-nowrap">
                               {service.name}
                             </span>
                           </Link>
@@ -226,30 +226,30 @@ export default function Header() {
           </div>
 
           {/* Right Side - Phone & CTA */}
-          <div className="flex items-center space-x-4">
-            {/* Phone Number - Hidden on small screens */}
+          <div className="flex items-center space-x-2 xl:space-x-4 shrink-0">
+            {/* Phone Number - Visible on xl+ screens */}
             <a
               href="tel:0403103555"
-              className="hidden md:flex items-center space-x-2 text-gray-700 hover:text-[#0a9fe1] transition-colors group"
+              className="hidden xl:flex items-center space-x-2 text-gray-700 hover:text-[#0a9fe1] transition-colors group whitespace-nowrap"
             >
-              <div className="w-9 h-9 rounded-full bg-[#f6f6f6] flex items-center justify-center group-hover:bg-[#0a9fe1] transition-colors">
+              <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-full bg-[#f6f6f6] flex items-center justify-center group-hover:bg-[#0a9fe1] transition-colors shrink-0">
                 <Phone
-                  size={16}
+                  size={15}
                   className="group-hover:text-white transition-colors"
                 />
               </div>
               <div className="text-sm">
-                <div className="text-xs text-gray-500">Call Us</div>
-                <div className="font-semibold leading-tight">0403 103 555</div>
+                <div className="text-[11px] text-gray-500 leading-tight">Call Us</div>
+                <div className="font-semibold leading-tight text-xs xl:text-sm">0403 103 555</div>
               </div>
             </a>
 
             {/* CTA Button */}
             <Link
               href="/contact"
-              className="hidden lg:inline-flex items-center bg-[#0a9fe1]  text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-xl hover:scale-105 transition-all relative overflow-hidden group"
+              className="hidden lg:inline-flex items-center bg-[#0a9fe1] text-white px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-semibold text-xs xl:text-sm hover:shadow-xl hover:scale-105 transition-all relative overflow-hidden group whitespace-nowrap shrink-0"
             >
-              <span className="relative z-10">Book Free Consultation</span>
+              <span className="relative z-10 whitespace-nowrap">Book Free Consultation</span>
               <span className="absolute inset-0 bg-gradient-to-r from-[#f370ae] to-[#0a9fe1] opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Link>
 
@@ -276,30 +276,30 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-between ${
+                  className={`font-medium py-3 px-4 rounded-lg transition-all flex items-center justify-between whitespace-nowrap ${
                     pathname === item.href
                       ? "text-[#0a9fe1] bg-[#0a9fe1]/10 font-semibold"
                       : "text-gray-700 hover:text-[#0a9fe1] hover:bg-[#f6f6f6]"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
-                  {item.name}
+                  <span className="whitespace-nowrap">{item.name}</span>
                   {pathname === item.href && (
-                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0a9fe1] to-[#f370ae]"></div>
+                    <div className="w-2 h-2 rounded-full bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] shrink-0"></div>
                   )}
                 </Link>
               ))}
               <div className="pt-4 space-y-3">
                 <a
                   href="tel:0403103555"
-                  className="flex items-center justify-center space-x-2 text-gray-700 border-2 border-[#0a9fe1] px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#0a9fe1] hover:text-white transition-all"
+                  className="flex items-center justify-center space-x-2 text-gray-700 border-2 border-[#0a9fe1] px-6 py-3 rounded-full font-semibold text-sm hover:bg-[#0a9fe1] hover:text-white transition-all whitespace-nowrap"
                 >
                   <Phone size={18} />
                   <span>Call 0403 103 555</span>
                 </a>
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-6 py-3 rounded-full font-semibold text-sm"
+                  className="flex items-center justify-center bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-6 py-3 rounded-full font-semibold text-sm whitespace-nowrap"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Book Free Consultation
