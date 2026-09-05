@@ -13,7 +13,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || "info@smarthomecare.com.au";
+    const recipientEmail = process.env.CONTACT_RECIPIENT_EMAIL || "info@smartcareservices.com.au";
     const formattedSubject = `[Smart Home Care Enquiry] ${subject || "General Enquiry"} - ${name}`;
 
     const textContent = `
@@ -143,13 +143,13 @@ Date: ${new Date().toLocaleString("en-AU", { timeZone: "Australia/Hobart" })}
       success: true,
       emailSent,
       recipient: recipientEmail,
-      message: "Your message has been sent successfully to info@smarthomecare.com.au.",
+      message: "Your message has been sent successfully to info@smartcareservices.com.au.",
       mailtoUrl,
     });
   } catch (error) {
     console.error("[Contact Form] Error processing contact form:", error);
     return NextResponse.json(
-      { error: "Failed to send message. Please try again or reach us at info@smarthomecare.com.au." },
+      { error: "Failed to send message. Please try again or reach us at info@smartcareservices.com.au." },
       { status: 500 }
     );
   }

@@ -38,9 +38,9 @@ export default function Footer() {
                 Maximise Your Home Care Package
               </h3>
               <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-                We proudly partner with Trilogy Care, Australia&apos;s leading Home
-                Care Package (HCP) management provider. Enjoy low management
-                fees, greater flexibility, and more hours of direct,
+                We proudly partner with Trilogy Care, Australia&apos;s leading
+                Home Care Package (HCP) management provider. Enjoy low
+                management fees, greater flexibility, and more hours of direct,
                 high-quality local care.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto justify-center">
@@ -230,7 +230,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <a
-                    href="mailto:info@smarthomecare.com.au"
+                    href="mailto:info@smartcareservices.com.au"
                     className="flex items-start gap-3 group"
                   >
                     <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-[#0a9fe1]/10 to-[#f370ae]/10 flex items-center justify-center group-hover:from-[#0a9fe1] group-hover:to-[#f370ae] transition-all flex-shrink-0">
@@ -242,7 +242,7 @@ export default function Footer() {
                     <div>
                       <p className="text-xs text-gray-500 mb-0.5">Email Us</p>
                       <p className="font-semibold text-gray-900 group-hover:text-[#0a9fe1] transition-colors break-all">
-                        info@smarthomecare.com.au
+                        info@smartcareservices.com.au
                       </p>
                     </div>
                   </a>

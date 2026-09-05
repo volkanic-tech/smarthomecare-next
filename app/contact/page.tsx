@@ -27,7 +27,9 @@ export default function ContactPage() {
     message: "",
   });
 
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const [mailtoFallback, setMailtoFallback] = useState("");
 
@@ -64,7 +66,8 @@ export default function ContactPage() {
       console.error(err);
       setStatus("error");
       setErrorMessage(
-        err.message || "An unexpected error occurred. Please call or email us directly."
+        err.message ||
+          "An unexpected error occurred. Please call or email us directly.",
       );
     }
   };
@@ -121,7 +124,9 @@ export default function ContactPage() {
                     Thank You for Reaching Out!
                   </h2>
                   <p className="text-gray-600 max-w-md mb-8 leading-relaxed">
-                    Your message has been delivered to our local Tasmanian care team (<strong>info@smarthomecare.com.au</strong>). We will review your enquiry and get back to you promptly.
+                    Your message has been delivered to our local Tasmanian care
+                    team (<strong>info@smartcareservices.com.au</strong>). We
+                    will review your enquiry and get back to you promptly.
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md">
@@ -155,8 +160,8 @@ export default function ContactPage() {
                         How Can We Help You?
                       </h2>
                       <p className="text-sm text-gray-600 mt-1">
-                        Fill in the form below and our local care team will get in
-                        touch within 24 hours.
+                        Fill in the form below and our local care team will get
+                        in touch within 24 hours.
                       </p>
                     </div>
 
@@ -232,7 +237,9 @@ export default function ContactPage() {
                           className="w-full px-4 py-3 rounded-xl border-2 border-gray-100 focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700 bg-gray-50/50"
                         >
                           <option value="">Select an option</option>
-                          <option value="General Enquiry">General Enquiry</option>
+                          <option value="General Enquiry">
+                            General Enquiry
+                          </option>
                           <option value="Home Care Package Discussion">
                             Home Care Package Discussion
                           </option>
@@ -242,7 +249,9 @@ export default function ContactPage() {
                           <option value="Employment & Join Our Team">
                             Employment &amp; Join Our Team
                           </option>
-                          <option value="Client Feedback">Client Feedback</option>
+                          <option value="Client Feedback">
+                            Client Feedback
+                          </option>
                         </select>
                       </div>
 
@@ -503,7 +512,8 @@ export default function ContactPage() {
               Proudly <span className="text-[#0a9fe1]">Tasmanian</span>
             </h2>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto">
-              Delivering professional and compassionate aged care services across Tasmania.
+              Delivering professional and compassionate aged care services
+              across Tasmania.
             </p>
           </div>
 
@@ -527,8 +537,12 @@ export default function ContactPage() {
                   <MapPin size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-gray-800 text-lg">Devonport Head Office</h3>
-                  <p className="text-gray-600 text-sm">45 Forbes St, Devonport TAS 7310</p>
+                  <h3 className="font-bold text-gray-800 text-lg">
+                    Devonport Head Office
+                  </h3>
+                  <p className="text-gray-600 text-sm">
+                    45 Forbes St, Devonport TAS 7310
+                  </p>
                 </div>
               </div>
 

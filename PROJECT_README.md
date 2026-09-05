@@ -27,12 +27,14 @@ A modern, premium cleaning service website built for the Australian market using
 ## 🎨 Design System
 
 **Brand Colors:**
+
 - Primary Blue: `#0a9fe1`
 - Accent Pink: `#f370ae`
 - Light Background: `#f6f6f6`
 - Dark: `#1a1a1a`
 
 **Typography & Spacing:**
+
 - Clean, generous white space
 - Professional font hierarchy
 - Consistent spacing system
@@ -47,6 +49,7 @@ A modern, premium cleaning service website built for the Australian market using
 ### Installation
 
 1. Install dependencies:
+
 ```bash
 npm install
 # or
@@ -54,6 +57,7 @@ yarn install
 ```
 
 2. Run the development server:
+
 ```bash
 npm run dev
 # or
@@ -106,6 +110,7 @@ smart-home-care/
 ## 📱 Pages Overview
 
 ### Home Page
+
 - Hero section with CTA buttons
 - Services overview grid
 - Why choose us section
@@ -113,12 +118,14 @@ smart-home-care/
 - Trust indicators
 
 ### About Page
+
 - Company story
 - Core values with icons
 - Statistics showcase
 - Why choose us details
 
 ### Services Page
+
 - 6 detailed service offerings:
   - Residential Cleaning
   - Commercial Cleaning
@@ -129,30 +136,35 @@ smart-home-care/
 - Each service includes features, pricing, and booking CTA
 
 ### Booking Page
+
 - Comprehensive quote request form
 - Contact information sidebar
 - Trust badges
 - Service selection options
 
 ### Contact Page
+
 - Contact form with validation
 - Business information cards
 - Quick links
 - Service area map placeholder
 
 ### Testimonials Page
+
 - 12+ customer testimonials
 - 5-star rating display
 - Filter by service type
 - Video testimonial placeholders
 
 ### FAQ Page
+
 - Categorized questions (General, Booking, Pricing, Services, etc.)
 - Accordion-style answers
 - Category filtering
 - 22+ common questions
 
 ### Areas Page
+
 - Melbourne suburbs coverage map
 - Organized by regions (Inner, Eastern, South Eastern, Northern, Western)
 - Service highlights
@@ -161,18 +173,21 @@ smart-home-care/
 ## 🎯 Key Features Implementation
 
 ### Animations
+
 - Fade-in effects on page load
 - Slide-up animations for cards
 - Hover effects on interactive elements
 - Smooth transitions throughout
 
 ### Forms
+
 - Client-side form handling
 - Input validation
 - Responsive layouts
 - Success feedback
 
 ### Navigation
+
 - Fixed header on scroll
 - Mobile-responsive menu
 - Active page highlighting
@@ -195,7 +210,7 @@ This project is created for Smart Home Care Services.
 
 ## 👥 Support
 
-For support, email info@smarthomecare.com.au or call 0403 103 555 CLEAN.
+For support, email info@smartcareservices.com.au or call 0403 103 555 CLEAN.
 
 ---
 
