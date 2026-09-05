@@ -5,26 +5,11 @@ import Image from "next/image";
 import Logo from "../../public/Logo.png";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import {
-  Phone,
-  Menu,
-  X,
-  ChevronDown,
-  Sparkles,
-  Shield,
-  UserCheck,
-  Car,
-  Leaf,
-  Heart,
-  Shirt,
-  Utensils,
-  ShoppingBag,
-} from "lucide-react";
+import { Phone, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const pathname = usePathname();
 
@@ -43,70 +28,13 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navigation: { name: string; href: string; hasDropdown?: boolean }[] = [
+  const navigation = [
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
-    { name: "Our Services", href: "/services", hasDropdown: true },
+    { name: "Our Services", href: "/services" },
     { name: "Home Care Packages", href: "/home-care-packages" },
     { name: "Service Areas", href: "/areas" },
     { name: "Contact Us", href: "/contact" },
-  ];
-
-  const services = [
-    {
-      name: "Home Safety & Maintenance",
-      href: "/services#home-safety",
-      icon: Shield,
-      color: "from-blue-500 to-cyan-500",
-    },
-    {
-      name: "Personal Care Support",
-      href: "/services#personal-care",
-      icon: UserCheck,
-      color: "from-purple-500 to-pink-500",
-    },
-    {
-      name: "Assisted Transport",
-      href: "/services#transport",
-      icon: Car,
-      color: "from-green-500 to-emerald-500",
-    },
-    {
-      name: "Garden & Outdoor Care",
-      href: "/services#garden",
-      icon: Leaf,
-      color: "from-orange-500 to-yellow-500",
-    },
-    {
-      name: "Home Cleaning",
-      href: "/services#cleaning",
-      icon: Sparkles,
-      color: "from-red-500 to-rose-500",
-    },
-    {
-      name: "Social Companionship",
-      href: "/services#companionship",
-      icon: Heart,
-      color: "from-indigo-500 to-purple-500",
-    },
-    {
-      name: "Linen & Laundry Care",
-      href: "/services#laundry",
-      icon: Shirt,
-      color: "from-teal-500 to-emerald-500",
-    },
-    {
-      name: "Meal Preparation",
-      href: "/services#meals",
-      icon: Utensils,
-      color: "from-orange-400 to-red-400",
-    },
-    {
-      name: "Shopping & Errands",
-      href: "/services#shopping",
-      icon: ShoppingBag,
-      color: "from-blue-400 to-indigo-500",
-    },
   ];
 
   return (
@@ -152,76 +80,24 @@ export default function Header() {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
             {navigation.map((item) => (
-              <div
+              <Link
                 key={item.name}
-                className="relative"
-                onMouseEnter={() => item.hasDropdown && setServicesOpen(true)}
-                onMouseLeave={() => item.hasDropdown && setServicesOpen(false)}
+                href={item.href}
+                className={`relative px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors group flex items-center whitespace-nowrap ${
+                  pathname === item.href
+                    ? "text-[#0a9fe1]"
+                    : "text-gray-700 hover:text-[#0a9fe1]"
+                }`}
               >
-                <Link
-                  href={item.href}
-                  className={`relative px-2.5 xl:px-4 py-2 text-xs xl:text-sm font-medium transition-colors group flex items-center gap-1 whitespace-nowrap ${
+                <span className="whitespace-nowrap">{item.name}</span>
+                <span
+                  className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] transition-all ${
                     pathname === item.href
-                      ? "text-[#0a9fe1]"
-                      : "text-gray-700 hover:text-[#0a9fe1]"
+                      ? "w-full"
+                      : "w-0 group-hover:w-full"
                   }`}
-                >
-                  <span className="whitespace-nowrap">{item.name}</span>
-                  {item.hasDropdown && (
-                    <ChevronDown
-                      size={14}
-                      className={`transition-transform shrink-0 ${servicesOpen ? "rotate-180" : ""}`}
-                    />
-                  )}
-                  <span
-                    className={`absolute bottom-0 left-0 h-0.5 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] transition-all ${
-                      pathname === item.href
-                        ? "w-full"
-                        : "w-0 group-hover:w-full"
-                    }`}
-                  />
-                </Link>
-
-                {/* Services Mega Menu */}
-                {item.hasDropdown && servicesOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-[600px] bg-white rounded-2xl shadow-2xl p-6 animate-fade-in border border-gray-100">
-                    <div className="grid grid-cols-2 gap-3">
-                      {services.map((service) => {
-                        const Icon = service.icon;
-                        return (
-                          <Link
-                            key={service.name}
-                            href={service.href}
-                            className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#f6f6f6] transition-all group"
-                            onClick={() => setServicesOpen(false)}
-                          >
-                            <div
-                              className={`w-10 h-10 rounded-lg bg-gradient-to-br ${service.color} flex items-center justify-center transform group-hover:scale-110 transition-transform shrink-0`}
-                            >
-                              <Icon size={20} className="text-white" />
-                            </div>
-                            <span className="text-sm font-medium text-gray-700 group-hover:text-[#0a9fe1] transition-colors whitespace-nowrap">
-                              {service.name}
-                            </span>
-                          </Link>
-                        );
-                      })}
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-gray-100">
-                      <Link
-                        href="/services"
-                        className="text-sm text-[#0a9fe1] hover:text-[#f370ae] font-semibold flex items-center gap-2 group"
-                        onClick={() => setServicesOpen(false)}
-                      >
-                        View All Services
-                        <span className="transform group-hover:translate-x-1 transition-transform">
-                          →
-                        </span>
-                      </Link>
-                    </div>
-                  </div>
-                )}
-              </div>
+                />
+              </Link>
             ))}
           </div>
 
@@ -239,8 +115,12 @@ export default function Header() {
                 />
               </div>
               <div className="text-sm">
-                <div className="text-[11px] text-gray-500 leading-tight">Call Us</div>
-                <div className="font-semibold leading-tight text-xs xl:text-sm">0403 103 555</div>
+                <div className="text-[11px] text-gray-500 leading-tight">
+                  Call Us
+                </div>
+                <div className="font-semibold leading-tight text-xs xl:text-sm">
+                  0403 103 555
+                </div>
               </div>
             </a>
 
@@ -249,7 +129,9 @@ export default function Header() {
               href="/contact"
               className="hidden lg:inline-flex items-center bg-[#0a9fe1] text-white px-4 xl:px-6 py-2 xl:py-2.5 rounded-full font-semibold text-xs xl:text-sm hover:shadow-xl hover:scale-105 transition-all relative overflow-hidden group whitespace-nowrap shrink-0"
             >
-              <span className="relative z-10 whitespace-nowrap">Book Free Consultation</span>
+              <span className="relative z-10 whitespace-nowrap">
+                Book Free Consultation
+              </span>
               <span className="absolute inset-0 bg-gradient-to-r from-[#f370ae] to-[#0a9fe1] opacity-0 group-hover:opacity-100 transition-opacity"></span>
             </Link>
 
