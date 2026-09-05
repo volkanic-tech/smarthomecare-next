@@ -49,7 +49,7 @@ export default function AboutPage() {
             <div className="relative animate-fade-in order-2 lg:order-1">
               <div className="relative rounded-3xl overflow-hidden shadow-2xl h-[500px]">
                 <Image
-                  src="/Home/Image1011.png"
+                  src="/Home/Image02.png"
                   alt="Compassionate Care Team"
                   fill
                   className="object-cover w-full h-full"
@@ -125,8 +125,11 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Core values grid */}
+          {/* Zigzag "path of care" layout */}
           <div className="max-w-6xl mx-auto relative">
+            {/* Connecting line — desktop only */}
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent -translate-y-1/2" />
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
               {[
                 {
@@ -157,13 +160,24 @@ export default function AboutPage() {
                 const Icon = value.icon;
                 const isBlue = index % 2 === 0;
                 const accent = isBlue ? "#0a9fe1" : "#f370ae";
+                const offset =
+                  index % 2 === 0 ? "lg:-translate-y-6" : "lg:translate-y-6";
 
                 return (
                   <div
                     key={index}
-                    className="group relative bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 animate-slide-up"
+                    className={`group relative bg-white rounded-3xl p-8 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2 animate-slide-up ${offset}`}
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
+                    {/* Node on the connecting line */}
+                    <div
+                      className="hidden lg:block absolute left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-white shadow"
+                      style={{
+                        backgroundColor: accent,
+                        top: index % 2 === 0 ? "calc(100% - 2px)" : "-8px",
+                      }}
+                    />
+
                     <div
                       className="w-14 h-14 rounded-2xl flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110"
                       style={{ backgroundColor: `${accent}15` }}
@@ -277,11 +291,11 @@ export default function AboutPage() {
 
                   {/* Added the missing "<a" right here */}
                   <a
-                    href="tel:0403103555"
+                    href="tel:1300762782"
                     className="inline-flex items-center justify-center gap-2 bg-transparent text-white border-2 border-white/40 px-8 py-4 rounded-full font-bold text-lg hover:bg-white/10 transition-all"
                   >
                     <Phone size={20} />
-                    Call 0403 103 555
+                    Call 1300 SMART
                   </a>
                 </div>
               </div>

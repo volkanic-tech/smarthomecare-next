@@ -1,22 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Clock,
-  Send,
-  Heart,
-  ArrowRight,
-  ShieldCheck,
-  CheckCircle2,
-  Sparkles,
-  CalendarCheck,
-  HeartHandshake,
-  UserCheck,
-} from "lucide-react";
-import Link from "next/link";
+import { useState } from 'react';
+import { Mail, Phone, MapPin, Clock, Send, Heart, ArrowRight } from 'lucide-react';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -33,40 +18,7 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("submitting");
-    setErrorMessage("");
-
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to submit enquiry.");
-      }
-
-      setMailtoFallback(data.mailtoUrl || "");
-      setStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
-    } catch (err: any) {
-      console.error(err);
-      setStatus("error");
-      setErrorMessage(
-        err.message || "An unexpected error occurred. Please call or email us directly."
-      );
-    }
+    alert('Thank you for reaching out to Smart Home Care Services. Our team will contact you shortly.');
   };
 
   const handleChange = (
@@ -95,9 +47,7 @@ export default function ContactPage() {
               Get In <span className="text-[#0a9fe1]">Touch</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed animate-slide-up animation-delay-200">
-              Whether you are ready to start care, need help understanding your
-              Home Care Package, or just want to chat about your options, our
-              friendly Tasmanian team is ready to listen.
+              Whether you are ready to start care, need help understanding your Home Care Package, or just want to chat about your options, our friendly Tasmanian team is ready to listen.
             </p>
           </div>
         </div>
@@ -106,39 +56,38 @@ export default function ContactPage() {
       {/* Main Content: Form & Sidebar */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#f6f6f6] via-white to-[#f6f6f6]">
         <div className="container mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-            {/* Contact Form (Left Column) */}
-            <div className="lg:col-span-7 flex flex-col">
-              {status === "success" ? (
-                <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-emerald-100 flex-1 flex flex-col items-center justify-center text-center animate-fade-in">
-                  <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mb-6 shadow-xs">
-                    <CheckCircle2 size={36} />
+          <div className="grid lg:grid-cols-3 gap-8">
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <form onSubmit={handleSubmit} className="bg-white rounded-3xl shadow-xl p-8 md:p-10 space-y-6 animate-slide-up">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
+                      Your Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-[#f6f6f6] focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700"
+                      placeholder="Jane Doe"
+                    />
                   </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-emerald-600 bg-emerald-50 px-3 py-1 rounded-full mb-3">
-                    Message Sent Successfully
-                  </span>
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
-                    Thank You for Reaching Out!
-                  </h2>
-                  <p className="text-gray-600 max-w-md mb-8 leading-relaxed">
-                    Your message has been delivered to our local Tasmanian care team (<strong>info@smarthomecare.com.au</strong>). We will review your enquiry and get back to you promptly.
-                  </p>
-
-                  <div className="flex flex-col sm:flex-row gap-4 w-full justify-center max-w-md">
-                    <button
-                      type="button"
-                      onClick={() => setStatus("idle")}
-                      className="inline-flex items-center justify-center gap-2 bg-[#0a9fe1] hover:bg-[#0883bb] text-white px-6 py-3.5 rounded-full font-bold text-sm shadow-md transition-all hover:scale-105"
-                    >
-                      Send Another Message
-                    </button>
-                    <a
-                      href="tel:0403103555"
-                      className="inline-flex items-center justify-center gap-2 bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3.5 rounded-full font-bold text-sm transition-all"
-                    >
-                      <Phone size={16} />
-                      Call 0403 103 555
-                    </a>
+                  <div>
+                    <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-[#f6f6f6] focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700"
+                      placeholder="jane@example.com"
+                    />
                   </div>
                 </div>
               ) : (
@@ -160,65 +109,54 @@ export default function ContactPage() {
                       </p>
                     </div>
 
-                    {status === "error" && (
-                      <div className="mb-6 p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-sm">
-                        <p className="font-semibold">{errorMessage}</p>
-                        {mailtoFallback && (
-                          <a
-                            href={mailtoFallback}
-                            className="text-[#0a9fe1] underline font-bold mt-1 inline-block"
-                          >
-                            Click here to send via your email app
-                          </a>
-                        )}
-                      </div>
-                    )}
+                <div>
+                  <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
+                    Phone Number
+                  </label>
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#f6f6f6] focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700"
+                    placeholder="0400 000 000"
+                  />
+                </div>
 
-                    <div className="space-y-6">
-                      <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
-                            Your Name *
-                          </label>
-                          <input
-                            type="text"
-                            name="name"
-                            required
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-100 focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700 bg-gray-50/50"
-                            placeholder="Jane Doe"
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
-                            Email Address *
-                          </label>
-                          <input
-                            type="email"
-                            name="email"
-                            required
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full px-4 py-3 rounded-xl border-2 border-gray-100 focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700 bg-gray-50/50"
-                            placeholder="jane@example.com"
-                          />
-                        </div>
-                      </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
+                    How Can We Help? *
+                  </label>
+                  <select
+                    name="subject"
+                    required
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#f6f6f6] focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700 bg-white"
+                  >
+                    <option value="">Select an option</option>
+                    <option value="general">General Enquiry</option>
+                    <option value="hcp">Home Care Package Discussion</option>
+                    <option value="private">Private Care Rates</option>
+                    <option value="employment">Employment Opportunities</option>
+                    <option value="feedback">Feedback</option>
+                  </select>
+                </div>
 
-                      <div>
-                        <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
-                          Phone Number
-                        </label>
-                        <input
-                          type="tel"
-                          name="phone"
-                          value={formData.phone}
-                          onChange={handleChange}
-                          className="w-full px-4 py-3 rounded-xl border-2 border-gray-100 focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700 bg-gray-50/50"
-                          placeholder="0400 000 000"
-                        />
-                      </div>
+                <div>
+                  <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
+                    Message *
+                  </label>
+                  <textarea
+                    name="message"
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={6}
+                    className="w-full px-4 py-3 rounded-xl border-2 border-[#f6f6f6] focus:border-[#0a9fe1] focus:ring-2 focus:ring-[#0a9fe1]/20 outline-none transition text-gray-700"
+                    placeholder="Please share any details about your care needs..."
+                  ></textarea>
+                </div>
 
                       <div>
                         <label className="block text-sm font-semibold text-[#0a9fe1] mb-2">
@@ -293,13 +231,9 @@ export default function ContactPage() {
             {/* Sidebar - Contact Info & Care Team Image (Right Column) */}
             <div className="lg:col-span-5 flex flex-col justify-between space-y-6">
               {/* Contact Card */}
-              <div className="bg-gradient-to-br from-[#0a9fe1] to-[#0883bb] rounded-3xl shadow-xl p-8 text-white relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full blur-2xl pointer-events-none -mr-16 -mt-16" />
-
-                <div className="flex items-center gap-3 mb-6 relative z-10">
-                  <div className="w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center backdrop-blur-xs">
-                    <Heart className="text-white" size={20} />
-                  </div>
+              <div className="bg-gradient-to-br from-[#0a9fe1] to-[#f370ae] rounded-3xl shadow-xl p-8 text-white animate-slide-up animation-delay-200">
+                <div className="flex items-center gap-3 mb-6">
+                  <Heart className="text-white" size={28} />
                   <h3 className="text-2xl font-bold">Contact Info</h3>
                 </div>
 
@@ -309,14 +243,9 @@ export default function ContactPage() {
                       <Phone size={22} />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider opacity-85 font-semibold mb-0.5">
-                        Phone (Direct Line)
-                      </p>
-                      <a
-                        href="tel:0403103555"
-                        className="text-lg font-bold hover:text-white/80 transition"
-                      >
-                        0403 103 555
+                      <p className="text-sm opacity-90 mb-1">Call Us</p>
+                      <a href="tel:1300762782" className="text-lg font-bold hover:text-white/80 transition">
+                        1300 SMART
                       </a>
                     </div>
                   </div>
@@ -326,14 +255,9 @@ export default function ContactPage() {
                       <Mail size={22} />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider opacity-85 font-semibold mb-0.5">
-                        Email Us
-                      </p>
-                      <a
-                        href="mailto:info@smartcareservices.com.au"
-                        className="text-sm font-bold hover:text-white/80 transition break-all"
-                      >
-                        info@smartcareservices.com.au
+                      <p className="text-sm opacity-90 mb-1">Email Us</p>
+                      <a href="mailto:info@smarthomecareservices.com.au" className="text-sm font-bold hover:text-white/80 transition break-all">
+                        info@smarthomecareservices.com.au
                       </a>
                     </div>
                   </div>
@@ -343,17 +267,8 @@ export default function ContactPage() {
                       <MapPin size={22} />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider opacity-85 font-semibold mb-0.5">
-                        Head Office
-                      </p>
-                      <a
-                        href="https://share.google/wrN5qUvX3IKFxh6tc"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-base font-bold hover:text-white/80 transition block leading-snug underline-offset-2 hover:underline"
-                      >
-                        45 Forbes St, Devonport TAS 7310
-                      </a>
+                      <p className="text-sm opacity-90 mb-1">Head Office</p>
+                      <p className="text-lg font-bold">Devonport, TAS</p>
                     </div>
                   </div>
 
@@ -362,128 +277,43 @@ export default function ContactPage() {
                       <Clock size={22} />
                     </div>
                     <div>
-                      <p className="text-xs uppercase tracking-wider opacity-85 font-semibold mb-0.5">
-                        Office Hours
-                      </p>
-                      <p className="text-base font-bold">
-                        Mon - Fri: 8 AM - 5 PM
-                      </p>
-                      <p className="text-xs opacity-90">
-                        In-home care delivered 24/7
-                      </p>
+                      <p className="text-sm opacity-90 mb-1">Office Hours</p>
+                      <p className="text-lg font-bold">Mon - Fri: 8 AM - 5 PM</p>
+                      <p className="text-sm opacity-90">Care provided 24/7</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Care Team Image Card with Overlay Reassurance Badge */}
-              <div className="w-full aspect-square relative rounded-3xl overflow-hidden shadow-xl border border-gray-100 group">
-                <img
-                  src="/Contact Us/image01.jpeg"
-                  alt="Smart Home Care Diverse Team"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <h4 className="text-lg font-bold">
-                    Compassionate &amp; Qualified Support
-                  </h4>
-                  <p className="text-xs text-white/85">
-                    Local coordinators and support workers dedicated to you.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Visual Reassurance / What to Expect Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-14">
-            <div className="inline-block px-4 py-1.5 bg-[#f370ae]/10 rounded-full mb-3">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#f370ae]">
-                Seamless Consultation
-              </span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
-              What Happens When You{" "}
-              <span className="text-[#0a9fe1]">Contact Us?</span>
-            </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mt-2 text-base">
-              Starting aged care should be supportive, transparent, and
-              stress-free. Here is what you can expect:
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Step 1 */}
-            <div className="bg-[#f8fbff] rounded-3xl p-6 border border-blue-50/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#0a9fe1]/10 text-[#0a9fe1] flex items-center justify-center mb-4">
-                  <Phone size={24} />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#0a9fe1]">
-                  Step 01
-                </span>
-                <h3 className="text-xl font-bold text-gray-800 mt-1 mb-2">
-                  Friendly Initial Chat
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We listen carefully to your unique lifestyle, home
-                  environment, and personal funding requirements.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#0a9fe1]">
-                <CheckCircle2 size={16} />
-                No obligation &amp; confidential
-              </div>
-            </div>
-
-            {/* Step 2 */}
-            <div className="bg-[#fff9fb] rounded-3xl p-6 border border-pink-50/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#f370ae]/10 text-[#f370ae] flex items-center justify-center mb-4">
-                  <CalendarCheck size={24} />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#f370ae]">
-                  Step 02
-                </span>
-                <h3 className="text-xl font-bold text-gray-800 mt-1 mb-2">
-                  Free In-Home Visit
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Our Tasmanian care manager meets you at home at a time that
-                  suits you and your family.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#f370ae]">
-                <CheckCircle2 size={16} />
-                Tailored care planning
-              </div>
-            </div>
-
-            {/* Step 3 */}
-            <div className="bg-[#f8fbff] rounded-3xl p-6 border border-blue-50/80 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
-              <div>
-                <div className="w-12 h-12 rounded-2xl bg-[#0a9fe1]/10 text-[#0a9fe1] flex items-center justify-center mb-4">
-                  <HeartHandshake size={24} />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-[#0a9fe1]">
-                  Step 03
-                </span>
-                <h3 className="text-xl font-bold text-gray-800 mt-1 mb-2">
-                  Care Team Matching
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  We match you with qualified, friendly local support workers
-                  who feel like family.
-                </p>
-              </div>
-              <div className="mt-6 pt-4 border-t border-gray-100 flex items-center gap-2 text-xs font-bold text-[#0a9fe1]">
-                <CheckCircle2 size={16} />
-                Dedicated ongoing support
+              {/* Quick Links Card */}
+              <div className="bg-white rounded-3xl shadow-xl p-8 animate-slide-up animation-delay-400">
+                <h3 className="text-2xl font-bold text-[#0a9fe1] mb-6">Quick Links</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="/home-care-packages" className="text-gray-700 hover:text-[#0a9fe1] transition font-semibold flex items-center gap-2">
+                      <span className="w-2 h-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] rounded-full"></span>
+                      Home Care Packages
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/services" className="text-gray-700 hover:text-[#0a9fe1] transition font-semibold flex items-center gap-2">
+                      <span className="w-2 h-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] rounded-full"></span>
+                      Our Services
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/about" className="text-gray-700 hover:text-[#0a9fe1] transition font-semibold flex items-center gap-2">
+                      <span className="w-2 h-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] rounded-full"></span>
+                      About Us
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/areas" className="text-gray-700 hover:text-[#0a9fe1] transition font-semibold flex items-center gap-2">
+                      <span className="w-2 h-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] rounded-full"></span>
+                      Service Areas
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
@@ -507,41 +337,16 @@ export default function ContactPage() {
             </p>
           </div>
 
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-200/60">
-            <div className="h-[400px] md:h-[460px] w-full relative">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1525049.805566373!2d145.41901306352033!3d-42.00227183652875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa6e205ab04c44f9%3A0x67399fcb6bb2fb8b!2sTasmania!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              ></iframe>
-            </div>
-
-            {/* Office Info Bottom Bar */}
-            <div className="p-6 md:p-8 bg-white border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-4">
-              <div className="flex items-center gap-4 text-center sm:text-left">
-                <div className="w-12 h-12 rounded-2xl bg-[#0a9fe1]/10 flex items-center justify-center text-[#0a9fe1] shrink-0 mx-auto sm:mx-0">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-gray-800 text-lg">Devonport Head Office</h3>
-                  <p className="text-gray-600 text-sm">45 Forbes St, Devonport TAS 7310</p>
-                </div>
-              </div>
-
-              <a
-                href="https://share.google/wrN5qUvX3IKFxh6tc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#0a9fe1] hover:bg-[#0883bb] text-white px-6 py-3 rounded-full font-bold text-sm shadow-md transition-all hover:scale-105 shrink-0"
-              >
-                Get Directions
-                <ArrowRight size={16} />
-              </a>
-            </div>
+          <div className="max-w-4xl mx-auto bg-[#f6f6f6] rounded-3xl shadow-xl overflow-hidden h-[500px]">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1525049.805566373!2d145.41901306352033!3d-42.00227183652875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xaa6e205ab04c44f9%3A0x67399fcb6bb2fb8b!2sTasmania!5e0!3m2!1sen!2sau!4v1700000000000!5m2!1sen!2sau"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </section>

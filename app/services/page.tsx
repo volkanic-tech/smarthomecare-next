@@ -14,12 +14,16 @@ import {
   Phone,
 } from "lucide-react";
 
+type LucideIcon = typeof Shield;
+
 interface Service {
   id: string;
+  icon: LucideIcon;
   image: string;
   title: string;
   tagline: string;
   description: string;
+  features: string[];
   empowerment: string;
   accent: "sky" | "rose";
 }
@@ -28,108 +32,174 @@ export default function ServicesPage() {
   const services: Service[] = [
     {
       id: "home-safety",
+      icon: Shield,
       image:
         "https://images.pexels.com/photos/4981798/pexels-photo-4981798.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Home Safety, Minor Repairs & Comfort Maintenance",
       tagline: "Keep your home a safe haven.",
       description:
         "We understand the importance of a secure living environment. Our team assists with minor maintenance tasks that ensure your home remains safe, accessible, and comfortable year-round.",
+      features: [
+        "Changing lightbulbs",
+        "Minor pathway clearing",
+        "Testing smoke alarms",
+        "Adjusting trip hazards",
+        "Basic home comfort checks",
+      ],
       empowerment:
         "You can move freely and safely around your home without worrying about maintenance risks.",
       accent: "sky",
     },
     {
       id: "personal-care",
+      icon: UserCheck,
       image:
         "https://images.pexels.com/photos/7551675/pexels-photo-7551675.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Dignified Personal Care & Morning Routine Support",
       tagline: "Start every day with confidence and grace.",
       description:
         "Personal care is deeply private. Our compassionate caregivers provide discrete, respectful assistance tailored to your exact preferences, ensuring you look and feel your best.",
+      features: [
+        "Assistance with showering/bathing",
+        "Grooming and dressing",
+        "Personal hygiene support",
+        "Morning and evening routines",
+      ],
       empowerment:
         "Maintains your personal dignity and wellbeing, helping you face the day with confidence.",
       accent: "rose",
     },
     {
       id: "transport",
+      icon: Car,
       image:
         "https://images.pexels.com/photos/6647024/pexels-photo-6647024.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Independent Mobility & Assisted Transport Services",
       tagline: "Stay connected to the people and places you love.",
       description:
         "Giving up driving shouldn't mean giving up your active life. Our safe, reliable transport services ensure you never miss an appointment or a social gathering.",
+      features: [
+        "Transport to medical appointments",
+        "Driving to social events",
+        "Visiting family and friends",
+        "Assistance navigating public spaces",
+      ],
       empowerment:
         "Eliminates the stress of travel and keeps you actively engaged in your local community.",
       accent: "sky",
     },
     {
       id: "garden",
+      icon: Leaf,
       image:
         "https://images.unsplash.com/photo-1601001815894-4bb6c81416d7?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Garden Sanctuary & Outdoor Living Care",
       tagline: "Enjoy the beauty of your garden without the strain.",
       description:
         "A well-kept garden is a source of joy. We provide gentle upkeep so you can continue to enjoy your outdoor spaces safely.",
+      features: [
+        "Light weeding",
+        "Watering plants",
+        "Sweeping paths",
+        "Minor pruning",
+        "Keeping outdoor areas safe and tidy",
+      ],
       empowerment:
         "Allows you to relax in a beautiful, hazard-free outdoor environment that brings you peace.",
       accent: "rose",
     },
     {
       id: "cleaning",
+      icon: Sparkles,
       image:
         "https://the-clean-home.com/wp-content/uploads/2025/08/male-housekeeper.jpg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Gentle Home Cleaning & Domestic Housekeeping",
       tagline: "A fresh, clean home for your comfort and health.",
       description:
         "Let us take the burden of household chores off your shoulders. We provide meticulous, gentle cleaning services that respect your space and belongings.",
+      features: [
+        "Vacuuming and mopping",
+        "Dusting surfaces",
+        "Wiping down kitchen/bathroom surfaces",
+        "General tidying",
+      ],
       empowerment:
         "Frees up your time and energy, providing a hygienic and uplifting environment to live in.",
       accent: "sky",
     },
     {
       id: "companionship",
+      icon: Heart,
       image:
         "https://plus.unsplash.com/premium_photo-1663100660770-ee436c2e033a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Meaningful Social Connection & Heartfelt Companionship",
       tagline: "Because a good chat can brighten the whole day.",
       description:
         "Emotional wellbeing is just as important as physical health. Our caregivers provide genuine companionship, sharing stories, hobbies, and a warm cup of tea.",
+      features: [
+        "Friendly conversation",
+        "Playing cards or board games",
+        "Sharing hobbies",
+        "Reading together",
+        "Enjoying a walk",
+      ],
       empowerment:
         "Fosters joy, reduces isolation, and keeps your mind active and engaged.",
       accent: "rose",
     },
     {
       id: "laundry",
+      icon: Shirt,
       image:
-        "https://thelaundrydoctor.com.au/wp-content/uploads/2024/09/Home-Care-Laundry-Service-Melbourne-1024x683.jpeg",
+        "https://images.pexels.com/photos/4440566/pexels-photo-4440566.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Fresh Linen, Laundry & Wardrobe Care",
       tagline: "The comfort of fresh clothes and crisp sheets.",
       description:
         "Managing laundry can be physically demanding. We handle your washing and wardrobe organisation with care, ensuring you always have what you need ready to wear.",
+      features: [
+        "Washing, drying, folding",
+        "Light ironing",
+        "Changing bed linen",
+        "Organising clothing",
+      ],
       empowerment:
         "Removes the physical strain of heavy lifting and ensures you always feel fresh and comfortable.",
       accent: "sky",
     },
     {
       id: "meals",
+      icon: Utensils,
       image:
-        "https://rtmedhealth.com/wp-content/uploads/2023/11/4720613364-feeding-home-care-3.jpg",
+        "https://images.pexels.com/photos/10432860/pexels-photo-10432860.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Nourishing Meal Preparation & Daily Culinary Support",
       tagline: "Delicious, home-cooked meals tailored just for you.",
       description:
         "Good nutrition is the foundation of health. We assist with meal planning and preparation, catering to your dietary requirements and personal tastes.",
+      features: [
+        "Grocery inventory",
+        "Preparing breakfasts, lunches, or dinners",
+        "Batch cooking",
+        "Post-meal kitchen clean-up",
+      ],
       empowerment:
         "Ensures you maintain a healthy diet with meals you genuinely enjoy, without the exhaustion of cooking.",
       accent: "rose",
     },
     {
       id: "shopping",
+      icon: ShoppingBag,
       image:
-        "https://cdn.sanity.io/images/5r2m9wkf/production/611f6ed27b8355a19456d9653bbcdd20786a22a8-1200x800.png?auto=format&fit=max&w=1920&q=75",
+        "https://images.pexels.com/photos/4124939/pexels-photo-4124939.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
       title: "Guided Shopping & Essential Daily Errands",
       tagline: "Hassle-free management of your daily essentials.",
       description:
         "Whether you want to browse the aisles together or prefer us to handle the list, we make sure your pantry is stocked and your errands are complete.",
+      features: [
+        "Grocery shopping (accompanied or on your behalf)",
+        "Picking up prescriptions",
+        "Posting mail",
+        "Running basic local errands",
+      ],
       empowerment:
         "Keeps your household running smoothly while giving you the choice to participate as much or as little as you like.",
       accent: "sky",
@@ -209,6 +279,7 @@ export default function ServicesPage() {
           {/* Responsive Services Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
             {services.map((service, index) => {
+              const Icon = service.icon;
               const a = accentMap[service.accent];
               return (
                 <a
@@ -231,6 +302,13 @@ export default function ServicesPage() {
                     <div
                       className={`absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r ${a.bar} opacity-90 z-10`}
                     />
+
+                    {/* Icon badge overlapping bottom-left of image */}
+                    <div
+                      className={`absolute -bottom-6 left-6 w-14 h-14 rounded-2xl bg-white shadow-lg ring-1 ring-gray-100 flex items-center justify-center ${a.iconText} transition-transform duration-300 group-hover:scale-110 z-10`}
+                    >
+                      <Icon size={26} />
+                    </div>
 
                     {/* Service number top-right */}
                     <span
@@ -284,6 +362,7 @@ export default function ServicesPage() {
         <div className="container mx-auto max-w-7xl">
           <div className="space-y-24">
             {services.map((service, index) => {
+              const Icon = service.icon;
               const a = accentMap[service.accent];
               const isEven = index % 2 === 0;
               return (
@@ -313,6 +392,12 @@ export default function ServicesPage() {
                         <div
                           className={`absolute inset-0 ring-2 ring-inset ${isEven ? "ring-[#0a9fe1]/15" : "ring-[#f370ae]/15"} rounded-[28px] pointer-events-none`}
                         />
+                        {/* Floating icon medallion */}
+                        <div
+                          className={`absolute top-5 left-5 w-16 h-16 rounded-2xl bg-white/90 backdrop-blur-sm shadow-lg flex items-center justify-center ${a.iconText}`}
+                        >
+                          <Icon size={30} />
+                        </div>
                         {/* Big number watermark */}
                         <span className="absolute bottom-4 right-5 text-7xl font-black text-white/80 drop-shadow-md select-none">
                           {String(index + 1).padStart(2, "0")}
@@ -366,6 +451,24 @@ export default function ServicesPage() {
                         <p className="text-gray-700 italic leading-relaxed">
                           “{service.empowerment}”
                         </p>
+                      </div>
+
+                      {/* Features as chips */}
+                      <div>
+                        <h3 className="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">
+                          Included Tasks
+                        </h3>
+                        <div className="flex flex-wrap gap-2.5">
+                          {service.features.map((feature, idx) => (
+                            <span
+                              key={idx}
+                              className={`inline-flex items-center gap-1.5 ${service.accent === "sky" ? "bg-[#0a9fe1]/8 text-[#0a9fe1]" : "bg-[#f370ae]/8 text-[#f370ae]"} text-sm font-semibold px-3.5 py-2 rounded-full`}
+                            >
+                              <CheckCircle size={15} />
+                              {feature}
+                            </span>
+                          ))}
+                        </div>
                       </div>
 
                       {/* CTA */}
@@ -436,11 +539,11 @@ export default function ServicesPage() {
                 <ArrowRight size={20} />
               </a>
               <a
-                href="tel:0403103555"
+                href="tel:1300762782"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-bold text-lg border-2 border-white/40 hover:bg-white/20 transition-all"
               >
                 <Phone size={20} />
-                Call 0403 103 555
+                Call 1300 SMART
               </a>
             </div>
 

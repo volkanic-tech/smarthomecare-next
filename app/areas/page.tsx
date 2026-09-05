@@ -1,82 +1,31 @@
 "use client";
 
-import {
-  MapPin,
-  Phone,
-  Clock,
-  CheckCircle,
-  CheckCircle2,
-  Heart,
-  ArrowRight,
-  Sparkles,
-  Mail,
-  ShieldCheck,
-  Compass,
-} from "lucide-react";
-import Link from "next/link";
+import { MapPin, Phone, Clock, CheckCircle, Heart, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function AreasPage() {
   const regions = [
     {
-      region: "North-West Tasmania",
-      image:
-        "https://www.travelsewhere.net/wp-content/uploads/2020/03/DSC_0783-15-1024x683.jpg",
-      description:
-        "Delivering reliable, familiar care to our coastal and hinterland communities. Whether you need transport to the Mersey Community Hospital or help maintaining your home and garden, our local caregivers in Devonport and Burnie are nearby.",
-      accent: "sky",
+      region: 'North-West Tasmania',
       suburbs: [
-        "Devonport",
-        "Burnie",
-        "Ulverstone",
-        "Penguin",
-        "Wynyard",
-        "Latrobe",
-        "Somerset",
-        "Port Sorell",
-        "Turners Beach",
-        "Spreyton",
-      ],
+        'Devonport', 'Burnie', 'Ulverstone', 'Penguin', 'Wynyard',
+        'Latrobe', 'Somerset', 'Port Sorell', 'Turners Beach', 'Spreyton'
+      ]
     },
     {
-      region: "Northern Tasmania",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9Pty0IUK6bz2ySebE2osHjuLmLjaiKqwChTM8g4NJp2bWtTP4QBbWhBc&s=10",
-      description:
-        "From the Tamar Valley to the city centre, we provide compassionate support that keeps you connected to the vibrant Launceston community, social clubs, and routine medical visits.",
-      accent: "rose",
+      region: 'Northern Tasmania',
       suburbs: [
-        "Launceston",
-        "Riverside",
-        "Kings Meadows",
-        "Prospect",
-        "Mowbray",
-        "Newnham",
-        "Norwood",
-        "Legana",
-        "Trevallyn",
-        "Invermay",
-      ],
+        'Launceston', 'Riverside', 'Kings Meadows', 'Prospect', 'Mowbray',
+        'Newnham', 'Norwood', 'Legana', 'Trevallyn', 'Invermay'
+      ]
     },
     {
-      region: "Southern Tasmania",
-      image:
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZm6Mb--G9OECTV4ELHXg7gKW3WZh3Ki_vIiLGIWZQUWXZazuvDpYguro&s=10",
-      description:
-        "Supporting seniors across the capital and its beautiful surrounding suburbs with premium personal care, domestic assistance, transportation, and genuine companionship.",
-      accent: "sky",
+      region: 'Southern Tasmania',
       suburbs: [
-        "Hobart",
-        "Sandy Bay",
-        "Glenorchy",
-        "Moonah",
-        "Kingston",
-        "Rosny",
-        "Bellerive",
-        "Taroona",
-        "Lenah Valley",
-        "Mount Nelson",
-      ],
-    },
+        'Hobart', 'Sandy Bay', 'Glenorchy', 'Moonah', 'Kingston',
+        'Rosny', 'Bellerive', 'Taroona', 'Lenah Valley', 'Mount Nelson'
+      ]
+    }
   ];
 
   return (
@@ -94,9 +43,7 @@ export default function AreasPage() {
               Service <span className="text-[#0a9fe1]">Areas</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-700 leading-relaxed animate-slide-up animation-delay-200">
-              We are a proud local Tasmanian provider. We don&apos;t operate
-              from an interstate call centre; our dedicated support workers and
-              care coordinators live right in your community.
+              We are a proud local business. We don't operate from an interstate call centre; our team is right here in Tasmania, ready to support you and your family.
             </p>
           </div>
         </div>
@@ -105,13 +52,15 @@ export default function AreasPage() {
       {/* Map & Local Coverage Overview Section */}
       <section className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
-          <div className="bg-gradient-to-br from-[#f8fbff] via-white to-[#fff9fb] rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100 mb-16">
-            <div className="text-center max-w-3xl mx-auto mb-10">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-[#0a9fe1]/10 rounded-full mb-4">
-                <Compass className="text-[#0a9fe1]" size={16} />
-                <span className="text-sm font-bold text-[#0a9fe1] tracking-wide uppercase">
-                  Statewide Local Coverage
-                </span>
+          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 animate-slide-up">
+            <h2 className="text-3xl md:text-4xl font-bold text-[#f370ae] mb-8 text-center">
+              Tasmanian <span className="text-[#0a9fe1]">Local Coverage</span>
+            </h2>
+            <div className="bg-gradient-to-br from-[#0a9fe1]/10 via-[#f370ae]/5 to-[#0a9fe1]/10 rounded-3xl h-96 flex items-center justify-center mb-8 border-2 border-[#0a9fe1]/20">
+              <div className="text-center animate-float">
+                <MapPin className="mx-auto mb-4 text-[#0a9fe1]" size={64} />
+                <p className="text-2xl font-bold text-[#f370ae] mb-2">Devonport | Burnie | Launceston | Hobart</p>
+                <p className="text-gray-700 text-lg">Delivering reliable, familiar care to our communities.</p>
               </div>
               <h2 className="text-3xl md:text-5xl font-bold text-[#f370ae] mb-4">
                 Tasmanian <span className="text-[#0a9fe1]">Care Network</span>
@@ -199,12 +148,8 @@ export default function AreasPage() {
                   <ShieldCheck size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#0a9fe1] mb-1">
-                    Local Network
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Caregivers who live in your local community.
-                  </p>
+                  <h3 className="font-semibold text-[#0a9fe1] mb-1">Local Network</h3>
+                  <p className="text-sm text-gray-600">Caregivers who live in your community</p>
                 </div>
               </div>
 
@@ -213,12 +158,8 @@ export default function AreasPage() {
                   <Clock size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#f370ae] mb-1">
-                    Timely Support
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Prompt scheduling and rapid roster coordination.
-                  </p>
+                  <h3 className="font-semibold text-[#0a9fe1] mb-1">Timely Support</h3>
+                  <p className="text-sm text-gray-600">Prompt responses from a local team</p>
                 </div>
               </div>
 
@@ -227,12 +168,8 @@ export default function AreasPage() {
                   <Phone size={24} />
                 </div>
                 <div>
-                  <h3 className="font-bold text-[#0a9fe1] mb-1">
-                    Direct Contact
-                  </h3>
-                  <p className="text-sm text-gray-600">
-                    Speak directly to our Tasmanian office on 0403 103 555.
-                  </p>
+                  <h3 className="font-semibold text-[#0a9fe1] mb-1">Direct Contact</h3>
+                  <p className="text-sm text-gray-600">Speak directly to our Tasmanian office</p>
                 </div>
               </div>
             </div>
@@ -240,76 +177,57 @@ export default function AreasPage() {
         </div>
       </section>
 
-      {/* Regions Detail & Images Section */}
-      <section className="py-20 px-4 bg-[#f6f6f6]">
+      {/* Regions Overview */}
+      <section className="py-24 px-4 bg-white">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-[#f370ae] mb-4">
-              Regional{" "}
-              <span className="text-[#0a9fe1]">Focus &amp; Suburbs</span>
+              Regional <span className="text-[#0a9fe1]">Focus</span>
             </h2>
             <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-              Our dedicated local teams provide compassionate support tailored
-              to the unique communities across Tasmania.
+              Our dedicated local teams provide compassionate support tailored to the unique communities across Tasmania.
             </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-[#f6f6f6] rounded-3xl p-8 border-t-4 border-[#0a9fe1] shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-2xl font-bold text-[#0a9fe1] mb-4">North-West Tasmania</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Delivering reliable, familiar care to our coastal and hinterland communities. Whether you need transport to the Mersey Community Hospital or help maintaining your garden, our local caregivers in Devonport and Burnie are nearby.
+              </p>
+            </div>
+            
+            <div className="bg-[#f6f6f6] rounded-3xl p-8 border-t-4 border-[#f370ae] shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-2xl font-bold text-[#f370ae] mb-4">Northern Tasmania</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                From the Tamar Valley to the city centre, we provide compassionate support that keeps you connected to the vibrant Launceston community.
+              </p>
+            </div>
+            
+            <div className="bg-[#f6f6f6] rounded-3xl p-8 border-t-4 border-[#0a9fe1] shadow-md hover:shadow-xl transition-all">
+              <h3 className="text-2xl font-bold text-[#0a9fe1] mb-4">Southern Tasmania</h3>
+              <p className="text-gray-700 leading-relaxed mb-4">
+                Supporting seniors across the capital and its beautiful surrounding suburbs with premium personal care, domestic assistance, and genuine companionship.
+              </p>
+            </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {regions.map((reg, idx) => {
-              const isSky = reg.accent === "sky";
-              return (
-                <div
-                  key={idx}
-                  className="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group"
-                >
-                  <div>
-                    {/* Region Header Image */}
-                    <div className="relative h-56 w-full overflow-hidden">
-                      <img
-                        src={reg.image}
-                        alt={reg.region}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                      <div className="absolute bottom-4 left-4 right-4">
-                        <h3 className="text-2xl font-bold text-white flex items-center gap-2">
-                          <MapPin
-                            size={20}
-                            className={
-                              isSky ? "text-[#0a9fe1]" : "text-[#f370ae]"
-                            }
-                          />
-                          {reg.region}
-                        </h3>
-                      </div>
-                    </div>
-
-                    {/* Region Body */}
-                    <div className="p-6 md:p-8">
-                      <p className="text-gray-700 leading-relaxed text-sm mb-6">
-                        {reg.description}
-                      </p>
-
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400 mb-3">
-                        Suburbs &amp; Surrounding Areas:
-                      </h4>
-                      <div className="grid grid-cols-2 gap-2 mb-6">
-                        {reg.suburbs.map((suburb, sIdx) => (
-                          <div
-                            key={sIdx}
-                            className="flex items-center gap-2 text-gray-700"
-                          >
-                            <span
-                              className={`w-2 h-2 rounded-full shrink-0 ${
-                                isSky ? "bg-[#0a9fe1]" : "bg-[#f370ae]"
-                              }`}
-                            />
-                            <span className="text-xs font-semibold">
-                              {suburb}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+            {areas.map((area, index) => (
+              <div 
+                key={index} 
+                className="bg-gradient-to-br from-white to-[#f6f6f6] rounded-3xl shadow-lg p-8 hover:shadow-xl transition-all border border-[#0a9fe1]/10 animate-slide-up"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
+                <h3 className="text-xl font-bold text-[#0a9fe1] mb-6 flex items-center gap-2">
+                  <MapPin className="text-[#f370ae]" size={24} />
+                  {area.region}
+                </h3>
+                <div className="grid grid-cols-2 gap-3">
+                  {area.suburbs.map((suburb, subIndex) => (
+                    <div key={subIndex} className="flex items-center gap-2 text-gray-700">
+                      <span className="w-1.5 h-1.5 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] rounded-full"></span>
+                      <span className="text-sm font-medium">{suburb}</span>
                     </div>
                   </div>
 
@@ -334,117 +252,33 @@ export default function AreasPage() {
         </div>
       </section>
 
-      {/* Don't See Your Suburb Section with Visual Support Image */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto max-w-5xl">
-          <div className="bg-gradient-to-br from-[#f8fbff] via-white to-[#fff9fb] rounded-3xl shadow-xl overflow-hidden border border-gray-100">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-5 relative h-72 lg:h-full min-h-[300px]">
-                <img
-                  src="https://images.pexels.com/photos/7551675/pexels-photo-7551675.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-                  alt="Friendly Tasmanian Care Support"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-black/40 via-transparent to-transparent" />
-              </div>
-
-              <div className="lg:col-span-7 p-8 lg:p-12 text-center lg:text-left">
-                <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#f370ae]/10 rounded-full mb-4">
-                  <Heart className="text-[#f370ae]" size={16} />
-                  <span className="text-xs font-bold text-[#f370ae] uppercase tracking-wider">
-                    Always Expanding
-                  </span>
-                </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-[#0a9fe1] mb-4">
-                  Don&apos;t See Your Specific Town Listed?
-                </h2>
-                <p className="text-gray-700 text-base md:text-lg mb-8 leading-relaxed">
-                  We are continuously expanding our trusted network of
-                  caregivers across Tasmania. Contact our local team—we may
-                  already have support workers available in your area.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-4 rounded-full font-bold text-base hover:shadow-xl transition-all hover:scale-105"
-                  >
-                    Check Your Suburb
-                    <ArrowRight size={18} />
-                  </Link>
-                  <a
-                    href="tel:0403103555"
-                    className="inline-flex items-center justify-center gap-2 bg-white text-[#0a9fe1] px-8 py-4 rounded-full font-bold text-base border-2 border-[#0a9fe1] hover:bg-[#0a9fe1] hover:text-white transition-all shadow-sm"
-                  >
-                    <Phone size={18} />
-                    Call 0403 103 555
-                  </a>
-                </div>
-              </div>
+      {/* Don't See Your Suburb */}
+      <section className="py-24 px-4 bg-gradient-to-br from-[#f6f6f6] via-white to-[#f6f6f6]">
+        <div className="container mx-auto max-w-4xl text-center">
+          <div className="bg-white rounded-3xl shadow-xl p-12 animate-scale-in">
+            <Heart className="mx-auto mb-6 text-[#f370ae]" size={48} />
+            <h2 className="text-3xl md:text-4xl font-bold text-[#0a9fe1] mb-4">
+              Don't See Your Specific Town Listed?
+            </h2>
+            <p className="text-xl text-gray-700 mb-8">
+              We are continuously expanding our trusted network of caregivers across the state. Contact us—we may already have support available in your area.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#0a9fe1] to-[#f370ae] text-white px-8 py-4 rounded-full font-bold text-lg hover:shadow-2xl transition-all transform hover:scale-105"
+              >
+                Enquire Now
+                <ArrowRight size={20} />
+              </Link>
+              <a
+                href="tel:1300762782"
+                className="inline-flex items-center justify-center gap-2 bg-white text-[#0a9fe1] px-8 py-4 rounded-full font-bold text-lg border-2 border-[#0a9fe1] hover:bg-[#0a9fe1] hover:text-white transition-all"
+              >
+                <Phone size={20} />
+                Call 1300 SMART
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA Section */}
-      <section className="py-24 px-4 bg-gradient-to-br from-[#0a9fe1] via-[#0883bb] to-[#0a9fe1] text-white relative overflow-hidden">
-        {/* Ambient Depth Glows */}
-        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/10 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#f370ae]/20 rounded-full blur-3xl -translate-x-1/4 translate-y-1/4 pointer-events-none" />
-
-        <div className="container mx-auto max-w-4xl text-center relative z-10">
-          <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/15 backdrop-blur-md rounded-full mb-8 border border-white/20">
-            <Sparkles size={16} className="text-white" />
-            <span className="text-sm font-semibold tracking-wide">
-              Local Tasmanian Care Team
-            </span>
-          </div>
-
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight drop-shadow-xs">
-            Ready to Connect with Local Caregivers?
-          </h2>
-          <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Speak with our friendly Tasmanian care coordinators today to arrange
-            tailored, compassionate support in your area.
-          </p>
-
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4 justify-center mb-12">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-[#0a9fe1] rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl hover:shadow-2xl"
-            >
-              Book a Free Consultation
-              <ArrowRight size={20} />
-            </Link>
-            <a
-              href="tel:0403103555"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
-            >
-              <Phone size={20} />
-              Call 0403 103 555
-            </a>
-            <a
-              href="mailto:info@smartcareservices.com.au"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 backdrop-blur-md text-white rounded-full font-bold text-lg border-2 border-white/30 hover:bg-white/20 transition-all"
-            >
-              <Mail size={20} />
-              Email Us
-            </a>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/85">
-            <span className="inline-flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-white" />
-              100% Tasmanian Owned &amp; Operated
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-white" />
-              Direct Local Coordinators
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <CheckCircle2 size={16} className="text-white" />
-              No Interstate Call Centres
-            </span>
           </div>
         </div>
       </section>
